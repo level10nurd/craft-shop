@@ -1,0 +1,589 @@
+2025-07-16 23:12:09,915 - INFO - Initializing API clients...
+2025-07-16 23:12:09,976 - INFO - Testing API connections...
+2025-07-16 23:12:10,239 - INFO - ✅ API connections successful
+2025-07-16 23:12:10,239 - INFO - 
+📦 Importing outlets...
+2025-07-16 23:12:10,449 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log "HTTP/2 201 Created"
+2025-07-16 23:12:10,451 - INFO - Started historical import for outlets (log_id: 1)
+2025-07-16 23:12:10,451 - INFO - Fetching outlets from Lightspeed...
+2025-07-16 23:12:10,451 - INFO - Fetching 2.0/outlets (after version: None)
+2025-07-16 23:12:11,064 - INFO - Fetching 2.0/outlets (after version: 43157382149)
+2025-07-16 23:12:12,072 - INFO - Fetched 1 records from 2.0/outlets
+2025-07-16 23:12:12,072 - INFO - Retrieved 1 outlets records from Lightspeed
+2025-07-16 23:12:12,072 - INFO - Transforming outlets data...
+2025-07-16 23:12:12,073 - INFO - Upserting outlets to Supabase...
+2025-07-16 23:12:12,229 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_outlets?columns=%22name%22%2C%22address%22%2C%22phone%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:12,231 - INFO - Upserted batch 1 of 1 records to lightspeed_outlets
+2025-07-16 23:12:12,884 - INFO - HTTP Request: PATCH https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log?id=eq.1 "HTTP/2 200 OK"
+2025-07-16 23:12:12,885 - INFO - Completed outlets: 1 processed, 1 created
+2025-07-16 23:12:13,032 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_state "HTTP/2 200 OK"
+2025-07-16 23:12:13,033 - INFO - Updated sync state for outlets: success
+2025-07-16 23:12:13,033 - INFO - ✅ Successfully imported outlets: 1 records in 2.50s
+2025-07-16 23:12:13,033 - INFO - 
+📦 Importing customers...
+2025-07-16 23:12:13,179 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log "HTTP/2 201 Created"
+2025-07-16 23:12:13,180 - INFO - Started historical import for customers (log_id: 2)
+2025-07-16 23:12:13,180 - INFO - Fetching customers from Lightspeed...
+2025-07-16 23:12:13,180 - INFO - Fetching 2.0/customers (after version: None)
+2025-07-16 23:12:13,539 - INFO - Fetching 2.0/customers (after version: 42165905497)
+2025-07-16 23:12:14,345 - INFO - Fetching 2.0/customers (after version: 44183844375)
+2025-07-16 23:12:15,268 - INFO - Fetched 1086 records from 2.0/customers
+2025-07-16 23:12:15,268 - INFO - Retrieved 1086 customers records from Lightspeed
+2025-07-16 23:12:15,268 - INFO - Transforming customers data...
+2025-07-16 23:12:15,269 - INFO - Upserting customers to Supabase...
+2025-07-16 23:12:15,437 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_customers?columns=%22created_at%22%2C%22phone%22%2C%22first_name%22%2C%22updated_at%22%2C%22last_name%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:15,437 - INFO - Upserted batch 1 of 100 records to lightspeed_customers
+2025-07-16 23:12:16,105 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_customers?columns=%22created_at%22%2C%22phone%22%2C%22first_name%22%2C%22updated_at%22%2C%22last_name%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:16,107 - INFO - Upserted batch 2 of 100 records to lightspeed_customers
+2025-07-16 23:12:16,764 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_customers?columns=%22created_at%22%2C%22phone%22%2C%22first_name%22%2C%22updated_at%22%2C%22last_name%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:16,768 - INFO - Upserted batch 3 of 100 records to lightspeed_customers
+2025-07-16 23:12:17,362 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_customers?columns=%22created_at%22%2C%22phone%22%2C%22first_name%22%2C%22updated_at%22%2C%22last_name%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:17,363 - INFO - Upserted batch 4 of 100 records to lightspeed_customers
+2025-07-16 23:12:18,038 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_customers?columns=%22created_at%22%2C%22phone%22%2C%22first_name%22%2C%22updated_at%22%2C%22last_name%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:18,039 - INFO - Upserted batch 5 of 100 records to lightspeed_customers
+2025-07-16 23:12:18,728 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_customers?columns=%22created_at%22%2C%22phone%22%2C%22first_name%22%2C%22updated_at%22%2C%22last_name%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:18,728 - INFO - Upserted batch 6 of 100 records to lightspeed_customers
+2025-07-16 23:12:19,336 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_customers?columns=%22created_at%22%2C%22phone%22%2C%22first_name%22%2C%22updated_at%22%2C%22last_name%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:19,338 - INFO - Upserted batch 7 of 100 records to lightspeed_customers
+2025-07-16 23:12:19,946 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_customers?columns=%22created_at%22%2C%22phone%22%2C%22first_name%22%2C%22updated_at%22%2C%22last_name%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:19,949 - INFO - Upserted batch 8 of 100 records to lightspeed_customers
+2025-07-16 23:12:20,634 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_customers?columns=%22created_at%22%2C%22phone%22%2C%22first_name%22%2C%22updated_at%22%2C%22last_name%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:20,635 - INFO - Upserted batch 9 of 100 records to lightspeed_customers
+2025-07-16 23:12:21,237 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_customers?columns=%22created_at%22%2C%22phone%22%2C%22first_name%22%2C%22updated_at%22%2C%22last_name%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:21,238 - INFO - Upserted batch 10 of 100 records to lightspeed_customers
+2025-07-16 23:12:21,893 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_customers?columns=%22created_at%22%2C%22phone%22%2C%22first_name%22%2C%22updated_at%22%2C%22last_name%22%2C%22id%22%2C%22email%22 "HTTP/2 201 Created"
+2025-07-16 23:12:21,895 - INFO - Upserted batch 11 of 86 records to lightspeed_customers
+2025-07-16 23:12:22,464 - INFO - HTTP Request: PATCH https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log?id=eq.2 "HTTP/2 200 OK"
+2025-07-16 23:12:22,465 - INFO - Completed customers: 1086 processed, 1086 created
+2025-07-16 23:12:22,534 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_state "HTTP/2 200 OK"
+2025-07-16 23:12:22,536 - INFO - Updated sync state for customers: success
+2025-07-16 23:12:22,536 - INFO - ✅ Successfully imported customers: 1086 records in 9.36s
+2025-07-16 23:12:22,538 - INFO - 
+📦 Importing products...
+2025-07-16 23:12:22,622 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log "HTTP/2 201 Created"
+2025-07-16 23:12:22,623 - INFO - Started historical import for products (log_id: 3)
+2025-07-16 23:12:22,623 - INFO - Fetching products from Lightspeed...
+2025-07-16 23:12:22,623 - INFO - Fetching 2.0/products (after version: None)
+2025-07-16 23:12:23,880 - INFO - Fetching 2.0/products (after version: 39259365150)
+2025-07-16 23:12:27,101 - INFO - Fetching 2.0/products (after version: 41036210064)
+2025-07-16 23:12:30,460 - INFO - Fetching 2.0/products (after version: 42482936450)
+2025-07-16 23:12:33,806 - INFO - Fetching 2.0/products (after version: 43994998225)
+2025-07-16 23:12:37,101 - INFO - Fetching 2.0/products (after version: 44229246775)
+2025-07-16 23:12:37,238 - INFO - Fetching 2.0/products (after version: 44294029722)
+2025-07-16 23:12:38,185 - INFO - Fetched 5005 records from 2.0/products
+2025-07-16 23:12:38,185 - INFO - Retrieved 5005 products records from Lightspeed
+2025-07-16 23:12:38,185 - INFO - Transforming products data...
+2025-07-16 23:12:38,191 - INFO - Upserting products to Supabase...
+2025-07-16 23:12:38,465 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:38,466 - INFO - Upserted batch 1 of 100 records to lightspeed_products
+2025-07-16 23:12:39,079 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:39,081 - INFO - Upserted batch 2 of 100 records to lightspeed_products
+2025-07-16 23:12:39,706 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:39,707 - INFO - Upserted batch 3 of 100 records to lightspeed_products
+2025-07-16 23:12:40,319 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:40,320 - INFO - Upserted batch 4 of 100 records to lightspeed_products
+2025-07-16 23:12:41,043 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:41,044 - INFO - Upserted batch 5 of 100 records to lightspeed_products
+2025-07-16 23:12:41,664 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:41,666 - INFO - Upserted batch 6 of 100 records to lightspeed_products
+2025-07-16 23:12:42,282 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:42,284 - INFO - Upserted batch 7 of 100 records to lightspeed_products
+2025-07-16 23:12:42,916 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:42,919 - INFO - Upserted batch 8 of 100 records to lightspeed_products
+2025-07-16 23:12:43,541 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:43,542 - INFO - Upserted batch 9 of 100 records to lightspeed_products
+2025-07-16 23:12:44,155 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:44,156 - INFO - Upserted batch 10 of 100 records to lightspeed_products
+2025-07-16 23:12:44,783 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:44,818 - INFO - Upserted batch 11 of 100 records to lightspeed_products
+2025-07-16 23:12:45,502 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:45,503 - INFO - Upserted batch 12 of 100 records to lightspeed_products
+2025-07-16 23:12:46,135 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:46,137 - INFO - Upserted batch 13 of 100 records to lightspeed_products
+2025-07-16 23:12:46,756 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:46,756 - INFO - Upserted batch 14 of 100 records to lightspeed_products
+2025-07-16 23:12:47,370 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:47,372 - INFO - Upserted batch 15 of 100 records to lightspeed_products
+2025-07-16 23:12:47,996 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:47,998 - INFO - Upserted batch 16 of 100 records to lightspeed_products
+2025-07-16 23:12:48,714 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:48,715 - INFO - Upserted batch 17 of 100 records to lightspeed_products
+2025-07-16 23:12:49,332 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:49,333 - INFO - Upserted batch 18 of 100 records to lightspeed_products
+2025-07-16 23:12:50,037 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:50,038 - INFO - Upserted batch 19 of 100 records to lightspeed_products
+2025-07-16 23:12:50,662 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:50,663 - INFO - Upserted batch 20 of 100 records to lightspeed_products
+2025-07-16 23:12:51,276 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:51,278 - INFO - Upserted batch 21 of 100 records to lightspeed_products
+2025-07-16 23:12:51,889 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:51,892 - INFO - Upserted batch 22 of 100 records to lightspeed_products
+2025-07-16 23:12:52,507 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:52,508 - INFO - Upserted batch 23 of 100 records to lightspeed_products
+2025-07-16 23:12:53,165 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:53,166 - INFO - Upserted batch 24 of 100 records to lightspeed_products
+2025-07-16 23:12:53,804 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:53,806 - INFO - Upserted batch 25 of 100 records to lightspeed_products
+2025-07-16 23:12:54,435 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:54,438 - INFO - Upserted batch 26 of 100 records to lightspeed_products
+2025-07-16 23:12:55,064 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:55,066 - INFO - Upserted batch 27 of 100 records to lightspeed_products
+2025-07-16 23:12:55,676 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:55,677 - INFO - Upserted batch 28 of 100 records to lightspeed_products
+2025-07-16 23:12:56,300 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:56,302 - INFO - Upserted batch 29 of 100 records to lightspeed_products
+2025-07-16 23:12:56,935 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:56,935 - INFO - Upserted batch 30 of 100 records to lightspeed_products
+2025-07-16 23:12:57,651 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:57,652 - INFO - Upserted batch 31 of 100 records to lightspeed_products
+2025-07-16 23:12:58,289 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:58,290 - INFO - Upserted batch 32 of 100 records to lightspeed_products
+2025-07-16 23:12:58,917 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:58,921 - INFO - Upserted batch 33 of 100 records to lightspeed_products
+2025-07-16 23:12:59,541 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:12:59,543 - INFO - Upserted batch 34 of 100 records to lightspeed_products
+2025-07-16 23:13:00,160 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:00,163 - INFO - Upserted batch 35 of 100 records to lightspeed_products
+2025-07-16 23:13:00,780 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:00,780 - INFO - Upserted batch 36 of 100 records to lightspeed_products
+2025-07-16 23:13:01,410 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:01,411 - INFO - Upserted batch 37 of 100 records to lightspeed_products
+2025-07-16 23:13:02,039 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:02,041 - INFO - Upserted batch 38 of 100 records to lightspeed_products
+2025-07-16 23:13:02,678 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:02,679 - INFO - Upserted batch 39 of 100 records to lightspeed_products
+2025-07-16 23:13:03,314 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:03,316 - INFO - Upserted batch 40 of 100 records to lightspeed_products
+2025-07-16 23:13:03,936 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:03,937 - INFO - Upserted batch 41 of 100 records to lightspeed_products
+2025-07-16 23:13:04,560 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:04,562 - INFO - Upserted batch 42 of 100 records to lightspeed_products
+2025-07-16 23:13:05,183 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:05,185 - INFO - Upserted batch 43 of 100 records to lightspeed_products
+2025-07-16 23:13:05,784 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:05,785 - INFO - Upserted batch 44 of 100 records to lightspeed_products
+2025-07-16 23:13:06,395 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:06,396 - INFO - Upserted batch 45 of 100 records to lightspeed_products
+2025-07-16 23:13:07,028 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:07,029 - INFO - Upserted batch 46 of 100 records to lightspeed_products
+2025-07-16 23:13:07,662 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:07,663 - INFO - Upserted batch 47 of 100 records to lightspeed_products
+2025-07-16 23:13:08,280 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:08,282 - INFO - Upserted batch 48 of 100 records to lightspeed_products
+2025-07-16 23:13:08,908 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:08,911 - INFO - Upserted batch 49 of 100 records to lightspeed_products
+2025-07-16 23:13:09,537 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:09,538 - INFO - Upserted batch 50 of 100 records to lightspeed_products
+2025-07-16 23:13:10,140 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_products?columns=%22created_at%22%2C%22name%22%2C%22price%22%2C%22updated_at%22%2C%22brand_id%22%2C%22cost%22%2C%22category_id%22%2C%22id%22%2C%22sku%22 "HTTP/2 201 Created"
+2025-07-16 23:13:10,140 - INFO - Upserted batch 51 of 5 records to lightspeed_products
+2025-07-16 23:13:10,731 - INFO - HTTP Request: PATCH https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log?id=eq.3 "HTTP/2 200 OK"
+2025-07-16 23:13:10,733 - INFO - Completed products: 5005 processed, 5005 created
+2025-07-16 23:13:10,813 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_state "HTTP/2 200 OK"
+2025-07-16 23:13:10,815 - INFO - Updated sync state for products: success
+2025-07-16 23:13:10,815 - INFO - ✅ Successfully imported products: 5005 records in 48.11s
+2025-07-16 23:13:10,832 - INFO - 
+📦 Importing sales...
+2025-07-16 23:13:10,929 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log "HTTP/2 201 Created"
+2025-07-16 23:13:10,930 - INFO - Started historical import for sales (log_id: 4)
+2025-07-16 23:13:10,930 - INFO - Fetching sales from Lightspeed...
+2025-07-16 23:13:10,931 - INFO - Fetching 2.0/sales (after version: None)
+2025-07-16 23:13:12,904 - INFO - Fetching 2.0/sales (after version: 32902526264)
+2025-07-16 23:13:13,931 - INFO - Fetching 2.0/sales (after version: 33104721952)
+2025-07-16 23:13:15,801 - INFO - Fetching 2.0/sales (after version: 34247611426)
+2025-07-16 23:13:17,931 - INFO - Fetching 2.0/sales (after version: 35535700420)
+2025-07-16 23:13:19,513 - INFO - Fetching 2.0/sales (after version: 36315346421)
+2025-07-16 23:13:22,471 - INFO - Fetching 2.0/sales (after version: 37695795269)
+2025-07-16 23:13:24,923 - INFO - Fetching 2.0/sales (after version: 39275647524)
+2025-07-16 23:13:26,448 - INFO - Fetching 2.0/sales (after version: 39730853594)
+2025-07-16 23:13:28,993 - INFO - Fetching 2.0/sales (after version: 41546521863)
+2025-07-16 23:13:31,524 - INFO - Fetching 2.0/sales (after version: 43098889515)
+2025-07-16 23:13:33,598 - INFO - Fetching 2.0/sales (after version: 44296118489)
+2025-07-16 23:13:33,694 - INFO - Fetched 10738 records from 2.0/sales
+2025-07-16 23:13:33,694 - INFO - Retrieved 10738 sales records from Lightspeed
+2025-07-16 23:13:33,694 - INFO - Transforming sales data...
+2025-07-16 23:13:33,706 - INFO - Upserting sales to Supabase...
+2025-07-16 23:13:34,065 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22created_at%22%2C%22customer_id%22%2C%22register_id%22%2C%22outlet_id%22%2C%22updated_at%22%2C%22total_price%22%2C%22sale_date%22%2C%22user_id%22%2C%22status%22%2C%22id%22%2C%22invoice_number%22 "HTTP/2 409 Conflict"
+2025-07-16 23:13:34,067 - ERROR - Failed to upsert batch to lightspeed_sales: {'message': 'insert or update on table "lightspeed_sales" violates foreign key constraint "lightspeed_sales_customer_id_fkey"', 'code': '23503', 'hint': None, 'details': 'Key (customer_id)=(06f2e29c-2544-11ee-efde-0ee40e148f72) is not present in table "lightspeed_customers".'}
+2025-07-16 23:13:34,067 - ERROR - ❌ Failed to import sales: {'message': 'insert or update on table "lightspeed_sales" violates foreign key constraint "lightspeed_sales_customer_id_fkey"', 'code': '23503', 'hint': None, 'details': 'Key (customer_id)=(06f2e29c-2544-11ee-efde-0ee40e148f72) is not present in table "lightspeed_customers".'}
+2025-07-16 23:13:34,293 - INFO - HTTP Request: PATCH https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log?id=eq.4 "HTTP/2 200 OK"
+2025-07-16 23:13:34,294 - INFO - Completed sales: 0 processed, 0 created
+2025-07-16 23:13:34,454 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_state "HTTP/2 200 OK"
+2025-07-16 23:13:34,455 - INFO - Updated sync state for sales: failed
+2025-07-16 23:13:34,490 - INFO - 
+📦 Importing inventory...
+2025-07-16 23:13:34,671 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log "HTTP/2 201 Created"
+2025-07-16 23:13:34,671 - INFO - Started historical import for inventory (log_id: 5)
+2025-07-16 23:13:34,671 - INFO - Fetching inventory from Lightspeed...
+2025-07-16 23:13:34,671 - INFO - Fetching 2.0/inventory (after version: None)
+2025-07-16 23:13:34,799 - INFO - Fetching 2.0/inventory (after version: 36912214315)
+2025-07-16 23:13:37,358 - INFO - Fetching 2.0/inventory (after version: 36912236879)
+2025-07-16 23:13:38,865 - INFO - Fetching 2.0/inventory (after version: 39884774837)
+2025-07-16 23:13:40,286 - INFO - Fetching 2.0/inventory (after version: 42960651398)
+2025-07-16 23:13:41,595 - INFO - Fetching 2.0/inventory (after version: 44296118814)
+2025-07-16 23:13:41,689 - INFO - Fetched 4964 records from 2.0/inventory
+2025-07-16 23:13:41,689 - INFO - Retrieved 4964 inventory records from Lightspeed
+2025-07-16 23:13:41,689 - INFO - Transforming inventory data...
+2025-07-16 23:13:41,710 - INFO - Upserting inventory to Supabase...
+2025-07-16 23:13:42,103 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:42,105 - INFO - Upserted batch 1 of 100 records to lightspeed_inventory
+2025-07-16 23:13:42,794 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:42,796 - INFO - Upserted batch 2 of 100 records to lightspeed_inventory
+2025-07-16 23:13:43,463 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:43,465 - INFO - Upserted batch 3 of 100 records to lightspeed_inventory
+2025-07-16 23:13:44,140 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:44,142 - INFO - Upserted batch 4 of 100 records to lightspeed_inventory
+2025-07-16 23:13:44,815 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:44,815 - INFO - Upserted batch 5 of 100 records to lightspeed_inventory
+2025-07-16 23:13:45,480 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:45,482 - INFO - Upserted batch 6 of 100 records to lightspeed_inventory
+2025-07-16 23:13:46,153 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:46,153 - INFO - Upserted batch 7 of 100 records to lightspeed_inventory
+2025-07-16 23:13:46,831 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:46,831 - INFO - Upserted batch 8 of 100 records to lightspeed_inventory
+2025-07-16 23:13:47,514 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:47,517 - INFO - Upserted batch 9 of 100 records to lightspeed_inventory
+2025-07-16 23:13:48,102 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:48,103 - INFO - Upserted batch 10 of 100 records to lightspeed_inventory
+2025-07-16 23:13:48,713 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:48,715 - INFO - Upserted batch 11 of 100 records to lightspeed_inventory
+2025-07-16 23:13:49,388 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:49,390 - INFO - Upserted batch 12 of 100 records to lightspeed_inventory
+2025-07-16 23:13:49,992 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:49,994 - INFO - Upserted batch 13 of 100 records to lightspeed_inventory
+2025-07-16 23:13:50,671 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:50,673 - INFO - Upserted batch 14 of 100 records to lightspeed_inventory
+2025-07-16 23:13:51,271 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:51,273 - INFO - Upserted batch 15 of 100 records to lightspeed_inventory
+2025-07-16 23:13:51,904 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:51,904 - INFO - Upserted batch 16 of 100 records to lightspeed_inventory
+2025-07-16 23:13:52,490 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:52,492 - INFO - Upserted batch 17 of 100 records to lightspeed_inventory
+2025-07-16 23:13:53,102 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:53,104 - INFO - Upserted batch 18 of 100 records to lightspeed_inventory
+2025-07-16 23:13:53,721 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:53,722 - INFO - Upserted batch 19 of 100 records to lightspeed_inventory
+2025-07-16 23:13:54,319 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:54,319 - INFO - Upserted batch 20 of 100 records to lightspeed_inventory
+2025-07-16 23:13:54,917 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:54,918 - INFO - Upserted batch 21 of 100 records to lightspeed_inventory
+2025-07-16 23:13:55,594 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:55,599 - INFO - Upserted batch 22 of 100 records to lightspeed_inventory
+2025-07-16 23:13:56,199 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:56,200 - INFO - Upserted batch 23 of 100 records to lightspeed_inventory
+2025-07-16 23:13:56,794 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:56,795 - INFO - Upserted batch 24 of 100 records to lightspeed_inventory
+2025-07-16 23:13:57,410 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:57,411 - INFO - Upserted batch 25 of 100 records to lightspeed_inventory
+2025-07-16 23:13:58,012 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:58,014 - INFO - Upserted batch 26 of 100 records to lightspeed_inventory
+2025-07-16 23:13:58,618 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:58,620 - INFO - Upserted batch 27 of 100 records to lightspeed_inventory
+2025-07-16 23:13:59,221 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:59,222 - INFO - Upserted batch 28 of 100 records to lightspeed_inventory
+2025-07-16 23:13:59,815 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:13:59,817 - INFO - Upserted batch 29 of 100 records to lightspeed_inventory
+2025-07-16 23:14:00,416 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:00,416 - INFO - Upserted batch 30 of 100 records to lightspeed_inventory
+2025-07-16 23:14:01,027 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:01,028 - INFO - Upserted batch 31 of 100 records to lightspeed_inventory
+2025-07-16 23:14:01,648 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:01,649 - INFO - Upserted batch 32 of 100 records to lightspeed_inventory
+2025-07-16 23:14:02,250 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:02,253 - INFO - Upserted batch 33 of 100 records to lightspeed_inventory
+2025-07-16 23:14:02,866 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:02,868 - INFO - Upserted batch 34 of 100 records to lightspeed_inventory
+2025-07-16 23:14:03,463 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:03,465 - INFO - Upserted batch 35 of 100 records to lightspeed_inventory
+2025-07-16 23:14:04,088 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:04,090 - INFO - Upserted batch 36 of 100 records to lightspeed_inventory
+2025-07-16 23:14:04,681 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:04,683 - INFO - Upserted batch 37 of 100 records to lightspeed_inventory
+2025-07-16 23:14:05,282 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:05,284 - INFO - Upserted batch 38 of 100 records to lightspeed_inventory
+2025-07-16 23:14:05,907 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:05,908 - INFO - Upserted batch 39 of 100 records to lightspeed_inventory
+2025-07-16 23:14:06,507 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:06,508 - INFO - Upserted batch 40 of 100 records to lightspeed_inventory
+2025-07-16 23:14:07,103 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:07,106 - INFO - Upserted batch 41 of 100 records to lightspeed_inventory
+2025-07-16 23:14:07,716 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:07,718 - INFO - Upserted batch 42 of 100 records to lightspeed_inventory
+2025-07-16 23:14:08,323 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:08,324 - INFO - Upserted batch 43 of 100 records to lightspeed_inventory
+2025-07-16 23:14:08,923 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_inventory?columns=%22created_at%22%2C%22product_id%22%2C%22current_amount%22%2C%22updated_at%22%2C%22id%22 "HTTP/2 201 Created"
+2025-07-16 23:14:08,925 - INFO - Upserted batch 44 of 100 records to lightspeed_inventory
+2025-07-16 23:18:37,356 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log "HTTP/2 201 Created"
+2025-07-16 23:18:37,360 - INFO - Started historical import for sales (log_id: 6)
+2025-07-16 23:18:37,360 - INFO - Fetching sales from Lightspeed...
+2025-07-16 23:18:37,360 - INFO - Fetching 2.0/sales (after version: None)
+2025-07-16 23:18:38,402 - INFO - Fetching 2.0/sales (after version: 32902526264)
+2025-07-16 23:18:39,036 - INFO - Fetching 2.0/sales (after version: 33104721952)
+2025-07-16 23:18:40,102 - INFO - Fetching 2.0/sales (after version: 34247611426)
+2025-07-16 23:18:41,014 - INFO - Fetching 2.0/sales (after version: 35535700420)
+2025-07-16 23:18:41,995 - INFO - Fetching 2.0/sales (after version: 36315346421)
+2025-07-16 23:18:43,083 - INFO - Fetching 2.0/sales (after version: 37695795269)
+2025-07-16 23:18:44,166 - INFO - Fetching 2.0/sales (after version: 39275647524)
+2025-07-16 23:18:45,065 - INFO - Fetching 2.0/sales (after version: 39730853594)
+2025-07-16 23:18:46,409 - INFO - Fetching 2.0/sales (after version: 41546521863)
+2025-07-16 23:18:47,166 - INFO - Fetching 2.0/sales (after version: 43098889515)
+2025-07-16 23:18:48,006 - INFO - Fetching 2.0/sales (after version: 44296118489)
+2025-07-16 23:18:48,550 - INFO - Fetched 10738 records from 2.0/sales
+2025-07-16 23:18:48,550 - INFO - Retrieved 10738 sales records from Lightspeed
+2025-07-16 23:18:48,550 - INFO - Transforming sales data...
+2025-07-16 23:18:48,568 - INFO - Upserting sales to Supabase...
+2025-07-16 23:18:48,728 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22invoice_number%22%2C%22user_id%22%2C%22register_id%22%2C%22created_at%22%2C%22total_price%22%2C%22sale_date%22%2C%22outlet_id%22%2C%22status%22%2C%22id%22%2C%22customer_id%22%2C%22updated_at%22 "HTTP/2 409 Conflict"
+2025-07-16 23:18:48,729 - ERROR - Failed to upsert batch to lightspeed_sales: {'message': 'insert or update on table "lightspeed_sales" violates foreign key constraint "lightspeed_sales_customer_id_fkey"', 'code': '23503', 'hint': None, 'details': 'Key (customer_id)=(06f2e29c-2544-11ee-efde-0ee40e148f72) is not present in table "lightspeed_customers".'}
+2025-07-16 23:18:48,730 - ERROR - ❌ Failed to import sales: {'message': 'insert or update on table "lightspeed_sales" violates foreign key constraint "lightspeed_sales_customer_id_fkey"', 'code': '23503', 'hint': None, 'details': 'Key (customer_id)=(06f2e29c-2544-11ee-efde-0ee40e148f72) is not present in table "lightspeed_customers".'}
+2025-07-16 23:18:48,819 - INFO - HTTP Request: PATCH https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log?id=eq.6 "HTTP/2 200 OK"
+2025-07-16 23:18:48,821 - INFO - Completed sales: 0 processed, 0 created
+2025-07-16 23:18:48,909 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_state "HTTP/2 200 OK"
+2025-07-16 23:18:48,911 - INFO - Updated sync state for sales: failed
+2025-07-16 23:20:01,091 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log "HTTP/2 201 Created"
+2025-07-16 23:20:01,094 - INFO - Started historical import for sales (log_id: 7)
+2025-07-16 23:20:01,095 - INFO - Fetching sales from Lightspeed...
+2025-07-16 23:20:01,095 - INFO - Fetching 2.0/sales (after version: None)
+2025-07-16 23:20:02,198 - INFO - Fetching 2.0/sales (after version: 32902526264)
+2025-07-16 23:20:02,853 - INFO - Fetching 2.0/sales (after version: 33104721952)
+2025-07-16 23:20:03,950 - INFO - Fetching 2.0/sales (after version: 34247611426)
+2025-07-16 23:20:04,857 - INFO - Fetching 2.0/sales (after version: 35535700420)
+2025-07-16 23:20:05,811 - INFO - Fetching 2.0/sales (after version: 36315346421)
+2025-07-16 23:20:06,889 - INFO - Fetching 2.0/sales (after version: 37695795269)
+2025-07-16 23:20:07,839 - INFO - Fetching 2.0/sales (after version: 39275647524)
+2025-07-16 23:20:08,886 - INFO - Fetching 2.0/sales (after version: 39730853594)
+2025-07-16 23:20:09,947 - INFO - Fetching 2.0/sales (after version: 41546521863)
+2025-07-16 23:20:11,013 - INFO - Fetching 2.0/sales (after version: 43098889515)
+2025-07-16 23:20:11,890 - INFO - Fetching 2.0/sales (after version: 44296118489)
+2025-07-16 23:20:12,349 - INFO - Fetched 10738 records from 2.0/sales
+2025-07-16 23:20:12,350 - INFO - Retrieved 10738 sales records from Lightspeed
+2025-07-16 23:20:12,350 - INFO - Transforming sales data...
+2025-07-16 23:20:12,366 - INFO - Upserting sales to Supabase...
+2025-07-16 23:20:12,644 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:12,647 - INFO - Upserted batch 1 of 100 records to lightspeed_sales
+2025-07-16 23:20:13,352 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:13,355 - INFO - Upserted batch 2 of 100 records to lightspeed_sales
+2025-07-16 23:20:13,960 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:13,961 - INFO - Upserted batch 3 of 100 records to lightspeed_sales
+2025-07-16 23:20:14,577 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:14,580 - INFO - Upserted batch 4 of 100 records to lightspeed_sales
+2025-07-16 23:20:15,190 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:15,193 - INFO - Upserted batch 5 of 100 records to lightspeed_sales
+2025-07-16 23:20:15,802 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:15,803 - INFO - Upserted batch 6 of 100 records to lightspeed_sales
+2025-07-16 23:20:16,410 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:16,411 - INFO - Upserted batch 7 of 100 records to lightspeed_sales
+2025-07-16 23:20:17,029 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:17,031 - INFO - Upserted batch 8 of 100 records to lightspeed_sales
+2025-07-16 23:20:17,745 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:17,746 - INFO - Upserted batch 9 of 100 records to lightspeed_sales
+2025-07-16 23:20:18,370 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:18,371 - INFO - Upserted batch 10 of 100 records to lightspeed_sales
+2025-07-16 23:20:18,988 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:18,989 - INFO - Upserted batch 11 of 100 records to lightspeed_sales
+2025-07-16 23:20:19,606 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:19,608 - INFO - Upserted batch 12 of 100 records to lightspeed_sales
+2025-07-16 23:20:20,337 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:20,340 - INFO - Upserted batch 13 of 100 records to lightspeed_sales
+2025-07-16 23:20:20,957 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:20,958 - INFO - Upserted batch 14 of 100 records to lightspeed_sales
+2025-07-16 23:20:21,597 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:21,597 - INFO - Upserted batch 15 of 100 records to lightspeed_sales
+2025-07-16 23:20:22,222 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:22,222 - INFO - Upserted batch 16 of 100 records to lightspeed_sales
+2025-07-16 23:20:22,858 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:22,864 - INFO - Upserted batch 17 of 100 records to lightspeed_sales
+2025-07-16 23:20:23,484 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:23,487 - INFO - Upserted batch 18 of 100 records to lightspeed_sales
+2025-07-16 23:20:24,289 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:24,290 - INFO - Upserted batch 19 of 100 records to lightspeed_sales
+2025-07-16 23:20:25,008 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:25,010 - INFO - Upserted batch 20 of 100 records to lightspeed_sales
+2025-07-16 23:20:25,642 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:25,652 - INFO - Upserted batch 21 of 100 records to lightspeed_sales
+2025-07-16 23:20:26,373 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:26,373 - INFO - Upserted batch 22 of 100 records to lightspeed_sales
+2025-07-16 23:20:27,003 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:27,005 - INFO - Upserted batch 23 of 100 records to lightspeed_sales
+2025-07-16 23:20:27,615 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:27,617 - INFO - Upserted batch 24 of 100 records to lightspeed_sales
+2025-07-16 23:20:28,237 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:28,240 - INFO - Upserted batch 25 of 100 records to lightspeed_sales
+2025-07-16 23:20:28,855 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:28,856 - INFO - Upserted batch 26 of 100 records to lightspeed_sales
+2025-07-16 23:20:29,479 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:29,480 - INFO - Upserted batch 27 of 100 records to lightspeed_sales
+2025-07-16 23:20:30,104 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:30,106 - INFO - Upserted batch 28 of 100 records to lightspeed_sales
+2025-07-16 23:20:30,726 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:30,729 - INFO - Upserted batch 29 of 100 records to lightspeed_sales
+2025-07-16 23:20:31,360 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:31,362 - INFO - Upserted batch 30 of 100 records to lightspeed_sales
+2025-07-16 23:20:31,990 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:31,991 - INFO - Upserted batch 31 of 100 records to lightspeed_sales
+2025-07-16 23:20:32,601 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:32,604 - INFO - Upserted batch 32 of 100 records to lightspeed_sales
+2025-07-16 23:20:33,216 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:33,217 - INFO - Upserted batch 33 of 100 records to lightspeed_sales
+2025-07-16 23:20:33,840 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:33,841 - INFO - Upserted batch 34 of 100 records to lightspeed_sales
+2025-07-16 23:20:34,454 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:34,455 - INFO - Upserted batch 35 of 100 records to lightspeed_sales
+2025-07-16 23:20:35,072 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:35,074 - INFO - Upserted batch 36 of 100 records to lightspeed_sales
+2025-07-16 23:20:35,697 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:35,699 - INFO - Upserted batch 37 of 100 records to lightspeed_sales
+2025-07-16 23:20:36,322 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:36,323 - INFO - Upserted batch 38 of 100 records to lightspeed_sales
+2025-07-16 23:20:36,947 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:36,950 - INFO - Upserted batch 39 of 100 records to lightspeed_sales
+2025-07-16 23:20:37,570 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:37,571 - INFO - Upserted batch 40 of 100 records to lightspeed_sales
+2025-07-16 23:20:38,184 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:38,185 - INFO - Upserted batch 41 of 100 records to lightspeed_sales
+2025-07-16 23:20:38,806 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:38,806 - INFO - Upserted batch 42 of 100 records to lightspeed_sales
+2025-07-16 23:20:39,433 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:39,434 - INFO - Upserted batch 43 of 100 records to lightspeed_sales
+2025-07-16 23:20:40,039 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:40,040 - INFO - Upserted batch 44 of 100 records to lightspeed_sales
+2025-07-16 23:20:40,653 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:40,655 - INFO - Upserted batch 45 of 100 records to lightspeed_sales
+2025-07-16 23:20:41,264 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:41,266 - INFO - Upserted batch 46 of 100 records to lightspeed_sales
+2025-07-16 23:20:41,883 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:41,895 - INFO - Upserted batch 47 of 100 records to lightspeed_sales
+2025-07-16 23:20:42,507 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:42,508 - INFO - Upserted batch 48 of 100 records to lightspeed_sales
+2025-07-16 23:20:43,234 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:43,237 - INFO - Upserted batch 49 of 100 records to lightspeed_sales
+2025-07-16 23:20:43,864 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:43,865 - INFO - Upserted batch 50 of 100 records to lightspeed_sales
+2025-07-16 23:20:44,481 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:44,482 - INFO - Upserted batch 51 of 100 records to lightspeed_sales
+2025-07-16 23:20:45,114 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:45,116 - INFO - Upserted batch 52 of 100 records to lightspeed_sales
+2025-07-16 23:20:45,722 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:45,724 - INFO - Upserted batch 53 of 100 records to lightspeed_sales
+2025-07-16 23:20:46,343 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:46,344 - INFO - Upserted batch 54 of 100 records to lightspeed_sales
+2025-07-16 23:20:46,965 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:46,967 - INFO - Upserted batch 55 of 100 records to lightspeed_sales
+2025-07-16 23:20:47,580 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:47,580 - INFO - Upserted batch 56 of 100 records to lightspeed_sales
+2025-07-16 23:20:48,190 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:48,194 - INFO - Upserted batch 57 of 100 records to lightspeed_sales
+2025-07-16 23:20:48,813 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:48,815 - INFO - Upserted batch 58 of 100 records to lightspeed_sales
+2025-07-16 23:20:49,427 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:49,428 - INFO - Upserted batch 59 of 100 records to lightspeed_sales
+2025-07-16 23:20:50,028 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:50,031 - INFO - Upserted batch 60 of 100 records to lightspeed_sales
+2025-07-16 23:20:50,662 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:50,663 - INFO - Upserted batch 61 of 100 records to lightspeed_sales
+2025-07-16 23:20:51,258 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:51,260 - INFO - Upserted batch 62 of 100 records to lightspeed_sales
+2025-07-16 23:20:51,872 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:51,874 - INFO - Upserted batch 63 of 100 records to lightspeed_sales
+2025-07-16 23:20:52,487 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:52,490 - INFO - Upserted batch 64 of 100 records to lightspeed_sales
+2025-07-16 23:20:53,108 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:53,109 - INFO - Upserted batch 65 of 100 records to lightspeed_sales
+2025-07-16 23:20:53,727 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:53,728 - INFO - Upserted batch 66 of 100 records to lightspeed_sales
+2025-07-16 23:20:54,332 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:54,333 - INFO - Upserted batch 67 of 100 records to lightspeed_sales
+2025-07-16 23:20:54,965 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:54,968 - INFO - Upserted batch 68 of 100 records to lightspeed_sales
+2025-07-16 23:20:55,592 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:55,593 - INFO - Upserted batch 69 of 100 records to lightspeed_sales
+2025-07-16 23:20:56,222 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:56,223 - INFO - Upserted batch 70 of 100 records to lightspeed_sales
+2025-07-16 23:20:56,846 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:56,847 - INFO - Upserted batch 71 of 100 records to lightspeed_sales
+2025-07-16 23:20:57,470 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:57,471 - INFO - Upserted batch 72 of 100 records to lightspeed_sales
+2025-07-16 23:20:58,085 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:58,085 - INFO - Upserted batch 73 of 100 records to lightspeed_sales
+2025-07-16 23:20:58,700 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:58,701 - INFO - Upserted batch 74 of 100 records to lightspeed_sales
+2025-07-16 23:20:59,318 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:59,319 - INFO - Upserted batch 75 of 100 records to lightspeed_sales
+2025-07-16 23:20:59,932 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:20:59,934 - INFO - Upserted batch 76 of 100 records to lightspeed_sales
+2025-07-16 23:21:00,549 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:00,551 - INFO - Upserted batch 77 of 100 records to lightspeed_sales
+2025-07-16 23:21:01,165 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:01,166 - INFO - Upserted batch 78 of 100 records to lightspeed_sales
+2025-07-16 23:21:01,779 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:01,781 - INFO - Upserted batch 79 of 100 records to lightspeed_sales
+2025-07-16 23:21:02,403 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:02,405 - INFO - Upserted batch 80 of 100 records to lightspeed_sales
+2025-07-16 23:21:03,028 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:03,030 - INFO - Upserted batch 81 of 100 records to lightspeed_sales
+2025-07-16 23:21:03,658 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:03,659 - INFO - Upserted batch 82 of 100 records to lightspeed_sales
+2025-07-16 23:21:04,268 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:04,271 - INFO - Upserted batch 83 of 100 records to lightspeed_sales
+2025-07-16 23:21:04,897 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:04,898 - INFO - Upserted batch 84 of 100 records to lightspeed_sales
+2025-07-16 23:21:05,529 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:05,531 - INFO - Upserted batch 85 of 100 records to lightspeed_sales
+2025-07-16 23:21:06,136 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:06,137 - INFO - Upserted batch 86 of 100 records to lightspeed_sales
+2025-07-16 23:21:06,761 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:06,775 - INFO - Upserted batch 87 of 100 records to lightspeed_sales
+2025-07-16 23:21:07,407 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:07,409 - INFO - Upserted batch 88 of 100 records to lightspeed_sales
+2025-07-16 23:21:08,047 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:08,051 - INFO - Upserted batch 89 of 100 records to lightspeed_sales
+2025-07-16 23:21:08,674 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:08,675 - INFO - Upserted batch 90 of 100 records to lightspeed_sales
+2025-07-16 23:21:09,290 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:09,293 - INFO - Upserted batch 91 of 100 records to lightspeed_sales
+2025-07-16 23:21:09,918 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:09,919 - INFO - Upserted batch 92 of 100 records to lightspeed_sales
+2025-07-16 23:21:10,535 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:10,536 - INFO - Upserted batch 93 of 100 records to lightspeed_sales
+2025-07-16 23:21:11,145 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:11,147 - INFO - Upserted batch 94 of 100 records to lightspeed_sales
+2025-07-16 23:21:11,760 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:11,762 - INFO - Upserted batch 95 of 100 records to lightspeed_sales
+2025-07-16 23:21:12,385 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:12,388 - INFO - Upserted batch 96 of 100 records to lightspeed_sales
+2025-07-16 23:21:13,024 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:13,024 - INFO - Upserted batch 97 of 100 records to lightspeed_sales
+2025-07-16 23:21:13,642 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:13,643 - INFO - Upserted batch 98 of 100 records to lightspeed_sales
+2025-07-16 23:21:14,276 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:14,277 - INFO - Upserted batch 99 of 100 records to lightspeed_sales
+2025-07-16 23:21:14,923 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:14,924 - INFO - Upserted batch 100 of 100 records to lightspeed_sales
+2025-07-16 23:21:15,567 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:15,568 - INFO - Upserted batch 101 of 100 records to lightspeed_sales
+2025-07-16 23:21:16,196 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:16,198 - INFO - Upserted batch 102 of 100 records to lightspeed_sales
+2025-07-16 23:21:16,844 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:16,847 - INFO - Upserted batch 103 of 100 records to lightspeed_sales
+2025-07-16 23:21:17,462 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:17,464 - INFO - Upserted batch 104 of 100 records to lightspeed_sales
+2025-07-16 23:21:18,085 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:18,088 - INFO - Upserted batch 105 of 100 records to lightspeed_sales
+2025-07-16 23:21:18,703 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:18,706 - INFO - Upserted batch 106 of 100 records to lightspeed_sales
+2025-07-16 23:21:19,326 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:19,327 - INFO - Upserted batch 107 of 100 records to lightspeed_sales
+2025-07-16 23:21:19,938 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/lightspeed_sales?columns=%22updated_at%22%2C%22id%22%2C%22invoice_number%22%2C%22total_price%22%2C%22outlet_id%22%2C%22created_at%22%2C%22user_id%22%2C%22status%22%2C%22customer_id%22%2C%22sale_date%22%2C%22register_id%22 "HTTP/2 201 Created"
+2025-07-16 23:21:19,939 - INFO - Upserted batch 108 of 38 records to lightspeed_sales
+2025-07-16 23:21:20,524 - INFO - HTTP Request: PATCH https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log?id=eq.7 "HTTP/2 200 OK"
+2025-07-16 23:21:20,527 - INFO - Completed sales: 10738 processed, 10738 created
+2025-07-16 23:21:20,604 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_state "HTTP/2 200 OK"
+2025-07-16 23:21:20,604 - INFO - Updated sync state for sales: success
+2025-07-16 23:21:20,604 - INFO - ✅ Successfully imported sales: 10738 records in 79.61s
+2025-07-16 23:22:27,132 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log "HTTP/2 201 Created"
+2025-07-16 23:22:27,136 - INFO - Started historical import for sale_line_items (log_id: 8)
+2025-07-16 23:22:27,136 - INFO - Fetching sale_line_items from Lightspeed...
+2025-07-16 23:22:27,136 - INFO - Fetching 2.0/sale_line_items (after version: None)
+2025-07-16 23:22:27,428 - ERROR - ❌ Failed to import sale_line_items: API request failed: 404 - {"errors":{"global":["No route found for \"GET https:\/\/craftcontemporaryshop.retail.lightspeed.app\/api\/2.0\/sale_line_items\""]},"reference":"681f8fbf695675c1021449ee"}
+2025-07-16 23:22:27,527 - INFO - HTTP Request: PATCH https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_log?id=eq.8 "HTTP/2 200 OK"
+2025-07-16 23:22:27,532 - INFO - Completed sale_line_items: 0 processed, 0 created
+2025-07-16 23:22:27,623 - INFO - HTTP Request: POST https://jzwkncthxjwqfzeztozm.supabase.co/rest/v1/sync_state "HTTP/2 200 OK"
+2025-07-16 23:22:27,625 - INFO - Updated sync state for sale_line_items: failed

@@ -1,0 +1,508 @@
+-- WARNING: This schema is for context only and is not meant to be run.
+-- Table order and constraints may not be valid for execution.
+-- Supbase schema as of 2025-07-16
+
+CREATE TABLE public.addresses (
+  id integer NOT NULL DEFAULT nextval('addresses_id_seq'::regclass),
+  account_number integer,
+  address_line1 text,
+  address_line2 text,
+  city text,
+  state text,
+  zip_code text,
+  country text,
+  address_type text,
+  quality text,
+  is_primary boolean DEFAULT false,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT addresses_pkey PRIMARY KEY (id),
+  CONSTRAINT addresses_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.appeals (
+  id integer NOT NULL DEFAULT nextval('appeals_id_seq'::regclass),
+  name text NOT NULL UNIQUE,
+  campaign_name text,
+  description text,
+  appeal_type text,
+  created_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  last_modified_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT appeals_pkey PRIMARY KEY (id),
+  CONSTRAINT appeals_campaign_name_fkey FOREIGN KEY (campaign_name) REFERENCES public.campaigns(name)
+);
+CREATE TABLE public.campaigns (
+  id integer NOT NULL DEFAULT nextval('campaigns_id_seq'::regclass),
+  name text NOT NULL UNIQUE,
+  goal numeric,
+  start_date date,
+  end_date date,
+  status text,
+  category text,
+  description text,
+  created_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  last_modified_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT campaigns_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.constituents (
+  account_number integer NOT NULL,
+  birthdate date,
+  communication_channel_preferred text,
+  communication_restriction_last_update_modified timestamp without time zone,
+  communication_restriction_last_update_reason text,
+  communication_restrictions text,
+  created_date timestamp without time zone,
+  created_name text,
+  email_interest_last_update_modified timestamp without time zone,
+  email_interest_last_update_reason text,
+  email_interests text,
+  email_interest_type text,
+  employer text,
+  envelope_name text,
+  facebook_id text,
+  first_name text,
+  formal_name text,
+  full_name text,
+  gender text,
+  informal_name text,
+  job_title text,
+  last_name text,
+  last_modified_date timestamp without time zone,
+  last_modified_name text,
+  linkedin_id text,
+  middle_name text,
+  prefix text,
+  recognition_name text,
+  sort_name text,
+  status text CHECK (status = ANY (ARRAY['Active'::text, 'Inactive'::text])),
+  suffix text,
+  twitter_id text,
+  type text CHECK (type = ANY (ARRAY['Individual'::text, 'Organization'::text])),
+  website text,
+  custom_birth_year integer,
+  custom_development_notes text,
+  custom_dietary_restrictions text,
+  custom_end_date date,
+  custom_ethnicity text,
+  custom_guest_names text,
+  custom_member_since date,
+  custom_membership_level text,
+  custom_occupation text,
+  custom_pronouns text,
+  custom_purchaser_contact_info text,
+  custom_purchaser_name text,
+  custom_sponsor_table_name text,
+  custom_start_date date,
+  custom_tags text,
+  custom_ticket_donation_count integer,
+  CONSTRAINT constituents_pkey PRIMARY KEY (account_number)
+);
+CREATE TABLE public.custom_fields (
+  id integer NOT NULL DEFAULT nextval('custom_fields_id_seq'::regclass),
+  field_name text NOT NULL UNIQUE,
+  field_type text,
+  field_category text,
+  is_active boolean DEFAULT true,
+  description text,
+  created_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT custom_fields_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.donations (
+  id integer NOT NULL DEFAULT nextval('donations_id_seq'::regclass),
+  transaction_number integer,
+  acknowledgement_status text,
+  amount numeric,
+  appeal_name text,
+  campaign_name text,
+  created_date timestamp without time zone,
+  created_name text,
+  designation_number integer,
+  fund_name text,
+  last_modified_date timestamp without time zone,
+  last_modified_name text,
+  non_deductible numeric DEFAULT 0,
+  note text,
+  tribute_name text,
+  tribute_type text,
+  custom_donation_item text,
+  custom_email_second_card text,
+  custom_fee numeric,
+  custom_fiscal_year text,
+  custom_gift_message text,
+  custom_guest_names text,
+  custom_name_second_card text,
+  custom_recipient_address text,
+  custom_recipient_city text,
+  custom_recipient_email text,
+  custom_recipient_first_name text,
+  custom_recipient_last_name text,
+  custom_recipient_phone text,
+  custom_recipient_state text,
+  custom_recipient_zip text,
+  custom_registration_type text,
+  custom_test text,
+  custom_ticket_quantity integer,
+  CONSTRAINT donations_pkey PRIMARY KEY (id),
+  CONSTRAINT donations_transaction_number_fkey FOREIGN KEY (transaction_number) REFERENCES public.transactions(transaction_number)
+);
+CREATE TABLE public.email_interests (
+  id integer NOT NULL DEFAULT nextval('email_interests_id_seq'::regclass),
+  account_number integer,
+  interest_name text,
+  is_subscribed boolean DEFAULT true,
+  subscription_date timestamp without time zone,
+  unsubscription_date timestamp without time zone,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT email_interests_pkey PRIMARY KEY (id),
+  CONSTRAINT email_interests_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.emails (
+  id integer NOT NULL DEFAULT nextval('emails_id_seq'::regclass),
+  account_number integer,
+  email text,
+  email_type text,
+  quality text,
+  is_primary boolean DEFAULT false,
+  restrictions text,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT emails_pkey PRIMARY KEY (id),
+  CONSTRAINT emails_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.file_attachments (
+  id integer NOT NULL DEFAULT nextval('file_attachments_id_seq'::regclass),
+  account_number integer,
+  file_name text,
+  file_path text,
+  file_type text,
+  file_size integer,
+  description text,
+  uploaded_by text,
+  created_date timestamp without time zone,
+  CONSTRAINT file_attachments_pkey PRIMARY KEY (id),
+  CONSTRAINT file_attachments_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.funds (
+  id integer NOT NULL DEFAULT nextval('funds_id_seq'::regclass),
+  name text NOT NULL UNIQUE,
+  description text,
+  fund_type text,
+  status text,
+  created_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  last_modified_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT funds_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.households (
+  household_id integer NOT NULL DEFAULT nextval('households_household_id_seq'::regclass),
+  name text,
+  primary_account_number integer,
+  address_line1 text,
+  address_line2 text,
+  city text,
+  state text,
+  zip_code text,
+  country text,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT households_pkey PRIMARY KEY (household_id),
+  CONSTRAINT households_primary_account_number_fkey FOREIGN KEY (primary_account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.interactions (
+  id integer NOT NULL DEFAULT nextval('interactions_id_seq'::regclass),
+  account_number integer,
+  interaction_date date,
+  interaction_type text,
+  subject text,
+  channel text,
+  description text,
+  outcome text,
+  created_by text,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT interactions_pkey PRIMARY KEY (id),
+  CONSTRAINT interactions_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.lightspeed_customers (
+  id text NOT NULL,
+  first_name text,
+  last_name text,
+  email text,
+  phone text,
+  created_at timestamp with time zone,
+  updated_at timestamp with time zone,
+  CONSTRAINT lightspeed_customers_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.lightspeed_outlets (
+  id text NOT NULL,
+  name text,
+  address text,
+  phone text,
+  email text,
+  CONSTRAINT lightspeed_outlets_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.lightspeed_products (
+  id text NOT NULL,
+  name text,
+  sku text,
+  price numeric,
+  cost numeric,
+  category_id text,
+  brand_id text,
+  created_at timestamp with time zone,
+  updated_at timestamp with time zone,
+  CONSTRAINT lightspeed_products_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.lightspeed_sale_line_items (
+  id text NOT NULL,
+  sale_id text,
+  product_id text,
+  price_total numeric,
+  quantity numeric,
+  status text,
+  total_price numeric,
+  CONSTRAINT lightspeed_sale_line_items_pkey PRIMARY KEY (id),
+  CONSTRAINT lightspeed_sale_line_items_sale_id_fkey FOREIGN KEY (sale_id) REFERENCES public.lightspeed_sales(id),
+  CONSTRAINT lightspeed_sale_line_items_product_id_fkey FOREIGN KEY (product_id) REFERENCES public.lightspeed_products(id)
+);
+CREATE TABLE public.lightspeed_sales (
+  id text NOT NULL,
+  outlet_id text,
+  register_id text,
+  user_id text,
+  customer_id text,
+  invoice_number text,
+  status text,
+  total_price numeric,
+  sale_date timestamp with time zone,
+  created_at timestamp with time zone,
+  updated_at timestamp with time zone,
+  CONSTRAINT lightspeed_sales_pkey PRIMARY KEY (id),
+  CONSTRAINT lightspeed_sales_outlet_id_fkey FOREIGN KEY (outlet_id) REFERENCES public.lightspeed_outlets(id),
+  CONSTRAINT lightspeed_sales_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.lightspeed_customers(id)
+);
+CREATE TABLE public.notes (
+  id integer NOT NULL DEFAULT nextval('notes_id_seq'::regclass),
+  account_number integer,
+  note_date date,
+  note_text text,
+  note_type text,
+  author text,
+  is_private boolean DEFAULT false,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT notes_pkey PRIMARY KEY (id),
+  CONSTRAINT notes_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.phones (
+  id integer NOT NULL DEFAULT nextval('phones_id_seq'::regclass),
+  account_number integer,
+  phone_number text,
+  phone_type text,
+  quality text,
+  is_primary boolean DEFAULT false,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT phones_pkey PRIMARY KEY (id),
+  CONSTRAINT phones_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.pledge_payments (
+  id integer NOT NULL DEFAULT nextval('pledge_payments_id_seq'::regclass),
+  pledge_id integer,
+  transaction_number integer,
+  payment_amount numeric,
+  payment_date date,
+  status text,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT pledge_payments_pkey PRIMARY KEY (id),
+  CONSTRAINT pledge_payments_pledge_id_fkey FOREIGN KEY (pledge_id) REFERENCES public.pledges(id),
+  CONSTRAINT pledge_payments_transaction_number_fkey FOREIGN KEY (transaction_number) REFERENCES public.transactions(transaction_number)
+);
+CREATE TABLE public.pledges (
+  id integer NOT NULL DEFAULT nextval('pledges_id_seq'::regclass),
+  account_number integer,
+  pledge_amount numeric,
+  balance_remaining numeric,
+  frequency text,
+  installments integer,
+  start_date date,
+  next_payment_date date,
+  campaign_name text,
+  fund_name text,
+  status text,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT pledges_pkey PRIMARY KEY (id),
+  CONSTRAINT pledges_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.processing_infos (
+  id integer NOT NULL DEFAULT nextval('processing_infos_id_seq'::regclass),
+  transaction_number integer,
+  processor_name text,
+  processor_reference text,
+  processor_fee numeric,
+  processing_date timestamp without time zone,
+  status text,
+  created_date timestamp without time zone,
+  CONSTRAINT processing_infos_pkey PRIMARY KEY (id),
+  CONSTRAINT processing_infos_transaction_number_fkey FOREIGN KEY (transaction_number) REFERENCES public.transactions(transaction_number)
+);
+CREATE TABLE public.recurring_donation_payments (
+  id integer NOT NULL DEFAULT nextval('recurring_donation_payments_id_seq'::regclass),
+  recurring_donation_id integer,
+  transaction_number integer,
+  payment_amount numeric,
+  payment_date date,
+  status text,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT recurring_donation_payments_pkey PRIMARY KEY (id),
+  CONSTRAINT recurring_donation_payments_transaction_number_fkey FOREIGN KEY (transaction_number) REFERENCES public.transactions(transaction_number),
+  CONSTRAINT recurring_donation_payments_recurring_donation_id_fkey FOREIGN KEY (recurring_donation_id) REFERENCES public.recurring_donations(id)
+);
+CREATE TABLE public.recurring_donations (
+  id integer NOT NULL DEFAULT nextval('recurring_donations_id_seq'::regclass),
+  account_number integer,
+  amount numeric,
+  frequency text,
+  start_date date,
+  end_date date,
+  next_payment_date date,
+  campaign_name text,
+  fund_name text,
+  status text,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT recurring_donations_pkey PRIMARY KEY (id),
+  CONSTRAINT recurring_donations_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.refunds (
+  id integer NOT NULL DEFAULT nextval('refunds_id_seq'::regclass),
+  original_transaction_number integer,
+  refund_transaction_number integer,
+  refund_amount numeric,
+  refund_date date,
+  reason text,
+  status text,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT refunds_pkey PRIMARY KEY (id),
+  CONSTRAINT refunds_original_transaction_number_fkey FOREIGN KEY (original_transaction_number) REFERENCES public.transactions(transaction_number),
+  CONSTRAINT refunds_refund_transaction_number_fkey FOREIGN KEY (refund_transaction_number) REFERENCES public.transactions(transaction_number)
+);
+CREATE TABLE public.relationship_roles (
+  id integer NOT NULL DEFAULT nextval('relationship_roles_id_seq'::regclass),
+  role_name text NOT NULL UNIQUE,
+  description text,
+  is_active boolean DEFAULT true,
+  created_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT relationship_roles_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.relationships (
+  id integer NOT NULL DEFAULT nextval('relationships_id_seq'::regclass),
+  primary_account_number integer,
+  related_account_number integer,
+  relationship_type text,
+  is_reciprocal boolean DEFAULT true,
+  start_date date,
+  end_date date,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT relationships_pkey PRIMARY KEY (id),
+  CONSTRAINT relationships_related_account_number_fkey FOREIGN KEY (related_account_number) REFERENCES public.constituents(account_number),
+  CONSTRAINT relationships_primary_account_number_fkey FOREIGN KEY (primary_account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.soft_credits (
+  id integer NOT NULL DEFAULT nextval('soft_credits_id_seq'::regclass),
+  transaction_number integer,
+  account_number integer,
+  credit_amount numeric,
+  credit_percentage numeric,
+  credit_type text,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT soft_credits_pkey PRIMARY KEY (id),
+  CONSTRAINT soft_credits_transaction_number_fkey FOREIGN KEY (transaction_number) REFERENCES public.transactions(transaction_number),
+  CONSTRAINT soft_credits_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.tasks (
+  id integer NOT NULL DEFAULT nextval('tasks_id_seq'::regclass),
+  account_number integer,
+  subject text,
+  description text,
+  due_date date,
+  completion_date date,
+  status text,
+  priority text,
+  assigned_to text,
+  task_type text,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT tasks_pkey PRIMARY KEY (id),
+  CONSTRAINT tasks_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.transaction_processor_accounts (
+  id integer NOT NULL DEFAULT nextval('transaction_processor_accounts_id_seq'::regclass),
+  processor_name text,
+  account_name text,
+  account_reference text,
+  is_active boolean DEFAULT true,
+  created_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT transaction_processor_accounts_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.transactions (
+  transaction_number integer NOT NULL,
+  account_number integer NOT NULL,
+  amount numeric,
+  check_date date,
+  check_number text,
+  created_date timestamp without time zone,
+  created_name text,
+  transaction_date date,
+  in_kind_description text,
+  in_kind_market_value numeric,
+  in_kind_type text,
+  last_modified_date timestamp without time zone,
+  last_modified_name text,
+  method text,
+  CONSTRAINT transactions_pkey PRIMARY KEY (transaction_number),
+  CONSTRAINT transactions_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.tributes (
+  id integer NOT NULL DEFAULT nextval('tributes_id_seq'::regclass),
+  transaction_number integer,
+  tribute_name text,
+  tribute_type text,
+  honoree_name text,
+  honoree_relationship text,
+  notification_name text,
+  notification_address text,
+  notification_email text,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT tributes_pkey PRIMARY KEY (id),
+  CONSTRAINT tributes_transaction_number_fkey FOREIGN KEY (transaction_number) REFERENCES public.transactions(transaction_number)
+);
+CREATE TABLE public.users (
+  id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass),
+  username text NOT NULL UNIQUE,
+  full_name text,
+  email text,
+  role text,
+  is_active boolean DEFAULT true,
+  created_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  last_login_date timestamp without time zone,
+  CONSTRAINT users_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.wallet_items (
+  id integer NOT NULL DEFAULT nextval('wallet_items_id_seq'::regclass),
+  account_number integer,
+  payment_method_type text,
+  payment_method_reference text,
+  is_default boolean DEFAULT false,
+  is_active boolean DEFAULT true,
+  created_date timestamp without time zone,
+  last_modified_date timestamp without time zone,
+  CONSTRAINT wallet_items_pkey PRIMARY KEY (id),
+  CONSTRAINT wallet_items_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);

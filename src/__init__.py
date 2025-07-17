@@ -1,0 +1,1 @@
+# Sync package for Lightspeed to Supabase data integration
