@@ -33,9 +33,10 @@ def init_supabase():
     return create_client(SUPABASE_URL, SUPABASE_KEY)
 
 @st.cache_data(ttl=300)  # Cache for 5 minutes
-def load_sales_data(supabase):
+def load_sales_data():
     """Load sales data with caching"""
     try:
+        supabase = init_supabase()
         thirty_days_ago = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
         response = supabase.table("lightspeed_sales")\
             .select("*")\
@@ -47,9 +48,10 @@ def load_sales_data(supabase):
         return pd.DataFrame()
 
 @st.cache_data(ttl=300)
-def load_product_data(supabase):
+def load_product_data():
     """Load product data with caching"""
     try:
+        supabase = init_supabase()
         response = supabase.table("lightspeed_products")\
             .select("*")\
             .execute()
@@ -59,9 +61,10 @@ def load_product_data(supabase):
         return pd.DataFrame()
 
 @st.cache_data(ttl=300)
-def load_sales_with_products(supabase):
+def load_sales_with_products():
     """Load sales line items with product details"""
     try:
+        supabase = init_supabase()
         response = supabase.table("lightspeed_sale_line_items")\
             .select("*, lightspeed_products(name, price)")\
             .execute()
@@ -71,16 +74,14 @@ def load_sales_with_products(supabase):
         return pd.DataFrame()
 
 def main():
-    supabase = init_supabase()
-    
     # Header
     st.title("🎨 Craft Contemporary Museum Shop")
     st.markdown("### Business Analytics Dashboard")
     st.markdown("---")
     
     # Load data
-    sales_df = load_sales_data(supabase)
-    products_df = load_product_data(supabase)
+    sales_df = load_sales_data()
+    products_df = load_product_data()
     
     if sales_df.empty:
         st.warning("No sales data available for the last 30 days.")
@@ -146,7 +147,7 @@ def main():
     st.markdown("---")
     
     # Load line items for product analysis
-    line_items_df = load_sales_with_products(supabase)
+    line_items_df = load_sales_with_products()
     
     if not line_items_df.empty:
         col1, col2 = st.columns(2)
