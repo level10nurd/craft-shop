@@ -1,0 +1,719 @@
+table_catalog,table_schema,table_name,column_name,data_type,character_maximum_length,is_nullable,column_default
+postgres,auth,audit_log_entries,instance_id,uuid,null,YES,null
+postgres,auth,audit_log_entries,id,uuid,null,NO,null
+postgres,auth,audit_log_entries,payload,json,null,YES,null
+postgres,auth,audit_log_entries,created_at,timestamp with time zone,null,YES,null
+postgres,auth,audit_log_entries,ip_address,character varying,64,NO,''::character varying
+postgres,auth,flow_state,id,uuid,null,NO,null
+postgres,auth,flow_state,user_id,uuid,null,YES,null
+postgres,auth,flow_state,auth_code,text,null,NO,null
+postgres,auth,flow_state,code_challenge_method,USER-DEFINED,null,NO,null
+postgres,auth,flow_state,code_challenge,text,null,NO,null
+postgres,auth,flow_state,provider_type,text,null,NO,null
+postgres,auth,flow_state,provider_access_token,text,null,YES,null
+postgres,auth,flow_state,provider_refresh_token,text,null,YES,null
+postgres,auth,flow_state,created_at,timestamp with time zone,null,YES,null
+postgres,auth,flow_state,updated_at,timestamp with time zone,null,YES,null
+postgres,auth,flow_state,authentication_method,text,null,NO,null
+postgres,auth,flow_state,auth_code_issued_at,timestamp with time zone,null,YES,null
+postgres,auth,identities,provider_id,text,null,NO,null
+postgres,auth,identities,user_id,uuid,null,NO,null
+postgres,auth,identities,identity_data,jsonb,null,NO,null
+postgres,auth,identities,provider,text,null,NO,null
+postgres,auth,identities,last_sign_in_at,timestamp with time zone,null,YES,null
+postgres,auth,identities,created_at,timestamp with time zone,null,YES,null
+postgres,auth,identities,updated_at,timestamp with time zone,null,YES,null
+postgres,auth,identities,email,text,null,YES,null
+postgres,auth,identities,id,uuid,null,NO,gen_random_uuid()
+postgres,auth,instances,id,uuid,null,NO,null
+postgres,auth,instances,uuid,uuid,null,YES,null
+postgres,auth,instances,raw_base_config,text,null,YES,null
+postgres,auth,instances,created_at,timestamp with time zone,null,YES,null
+postgres,auth,instances,updated_at,timestamp with time zone,null,YES,null
+postgres,auth,mfa_amr_claims,session_id,uuid,null,NO,null
+postgres,auth,mfa_amr_claims,created_at,timestamp with time zone,null,NO,null
+postgres,auth,mfa_amr_claims,updated_at,timestamp with time zone,null,NO,null
+postgres,auth,mfa_amr_claims,authentication_method,text,null,NO,null
+postgres,auth,mfa_amr_claims,id,uuid,null,NO,null
+postgres,auth,mfa_challenges,id,uuid,null,NO,null
+postgres,auth,mfa_challenges,factor_id,uuid,null,NO,null
+postgres,auth,mfa_challenges,created_at,timestamp with time zone,null,NO,null
+postgres,auth,mfa_challenges,verified_at,timestamp with time zone,null,YES,null
+postgres,auth,mfa_challenges,ip_address,inet,null,NO,null
+postgres,auth,mfa_challenges,otp_code,text,null,YES,null
+postgres,auth,mfa_challenges,web_authn_session_data,jsonb,null,YES,null
+postgres,auth,mfa_factors,id,uuid,null,NO,null
+postgres,auth,mfa_factors,user_id,uuid,null,NO,null
+postgres,auth,mfa_factors,friendly_name,text,null,YES,null
+postgres,auth,mfa_factors,factor_type,USER-DEFINED,null,NO,null
+postgres,auth,mfa_factors,status,USER-DEFINED,null,NO,null
+postgres,auth,mfa_factors,created_at,timestamp with time zone,null,NO,null
+postgres,auth,mfa_factors,updated_at,timestamp with time zone,null,NO,null
+postgres,auth,mfa_factors,secret,text,null,YES,null
+postgres,auth,mfa_factors,phone,text,null,YES,null
+postgres,auth,mfa_factors,last_challenged_at,timestamp with time zone,null,YES,null
+postgres,auth,mfa_factors,web_authn_credential,jsonb,null,YES,null
+postgres,auth,mfa_factors,web_authn_aaguid,uuid,null,YES,null
+postgres,auth,one_time_tokens,id,uuid,null,NO,null
+postgres,auth,one_time_tokens,user_id,uuid,null,NO,null
+postgres,auth,one_time_tokens,token_type,USER-DEFINED,null,NO,null
+postgres,auth,one_time_tokens,token_hash,text,null,NO,null
+postgres,auth,one_time_tokens,relates_to,text,null,NO,null
+postgres,auth,one_time_tokens,created_at,timestamp without time zone,null,NO,now()
+postgres,auth,one_time_tokens,updated_at,timestamp without time zone,null,NO,now()
+postgres,auth,refresh_tokens,instance_id,uuid,null,YES,null
+postgres,auth,refresh_tokens,id,bigint,null,NO,nextval('auth.refresh_tokens_id_seq'::regclass)
+postgres,auth,refresh_tokens,token,character varying,255,YES,null
+postgres,auth,refresh_tokens,user_id,character varying,255,YES,null
+postgres,auth,refresh_tokens,revoked,boolean,null,YES,null
+postgres,auth,refresh_tokens,created_at,timestamp with time zone,null,YES,null
+postgres,auth,refresh_tokens,updated_at,timestamp with time zone,null,YES,null
+postgres,auth,refresh_tokens,parent,character varying,255,YES,null
+postgres,auth,refresh_tokens,session_id,uuid,null,YES,null
+postgres,auth,saml_providers,id,uuid,null,NO,null
+postgres,auth,saml_providers,sso_provider_id,uuid,null,NO,null
+postgres,auth,saml_providers,entity_id,text,null,NO,null
+postgres,auth,saml_providers,metadata_xml,text,null,NO,null
+postgres,auth,saml_providers,metadata_url,text,null,YES,null
+postgres,auth,saml_providers,attribute_mapping,jsonb,null,YES,null
+postgres,auth,saml_providers,created_at,timestamp with time zone,null,YES,null
+postgres,auth,saml_providers,updated_at,timestamp with time zone,null,YES,null
+postgres,auth,saml_providers,name_id_format,text,null,YES,null
+postgres,auth,saml_relay_states,id,uuid,null,NO,null
+postgres,auth,saml_relay_states,sso_provider_id,uuid,null,NO,null
+postgres,auth,saml_relay_states,request_id,text,null,NO,null
+postgres,auth,saml_relay_states,for_email,text,null,YES,null
+postgres,auth,saml_relay_states,redirect_to,text,null,YES,null
+postgres,auth,saml_relay_states,created_at,timestamp with time zone,null,YES,null
+postgres,auth,saml_relay_states,updated_at,timestamp with time zone,null,YES,null
+postgres,auth,saml_relay_states,flow_state_id,uuid,null,YES,null
+postgres,auth,schema_migrations,version,character varying,255,NO,null
+postgres,auth,sessions,id,uuid,null,NO,null
+postgres,auth,sessions,user_id,uuid,null,NO,null
+postgres,auth,sessions,created_at,timestamp with time zone,null,YES,null
+postgres,auth,sessions,updated_at,timestamp with time zone,null,YES,null
+postgres,auth,sessions,factor_id,uuid,null,YES,null
+postgres,auth,sessions,aal,USER-DEFINED,null,YES,null
+postgres,auth,sessions,not_after,timestamp with time zone,null,YES,null
+postgres,auth,sessions,refreshed_at,timestamp without time zone,null,YES,null
+postgres,auth,sessions,user_agent,text,null,YES,null
+postgres,auth,sessions,ip,inet,null,YES,null
+postgres,auth,sessions,tag,text,null,YES,null
+postgres,auth,sso_domains,id,uuid,null,NO,null
+postgres,auth,sso_domains,sso_provider_id,uuid,null,NO,null
+postgres,auth,sso_domains,domain,text,null,NO,null
+postgres,auth,sso_domains,created_at,timestamp with time zone,null,YES,null
+postgres,auth,sso_domains,updated_at,timestamp with time zone,null,YES,null
+postgres,auth,sso_providers,id,uuid,null,NO,null
+postgres,auth,sso_providers,resource_id,text,null,YES,null
+postgres,auth,sso_providers,created_at,timestamp with time zone,null,YES,null
+postgres,auth,sso_providers,updated_at,timestamp with time zone,null,YES,null
+postgres,auth,users,instance_id,uuid,null,YES,null
+postgres,auth,users,id,uuid,null,NO,null
+postgres,auth,users,aud,character varying,255,YES,null
+postgres,auth,users,role,character varying,255,YES,null
+postgres,auth,users,email,character varying,255,YES,null
+postgres,auth,users,encrypted_password,character varying,255,YES,null
+postgres,auth,users,email_confirmed_at,timestamp with time zone,null,YES,null
+postgres,auth,users,invited_at,timestamp with time zone,null,YES,null
+postgres,auth,users,confirmation_token,character varying,255,YES,null
+postgres,auth,users,confirmation_sent_at,timestamp with time zone,null,YES,null
+postgres,auth,users,recovery_token,character varying,255,YES,null
+postgres,auth,users,recovery_sent_at,timestamp with time zone,null,YES,null
+postgres,auth,users,email_change_token_new,character varying,255,YES,null
+postgres,auth,users,email_change,character varying,255,YES,null
+postgres,auth,users,email_change_sent_at,timestamp with time zone,null,YES,null
+postgres,auth,users,last_sign_in_at,timestamp with time zone,null,YES,null
+postgres,auth,users,raw_app_meta_data,jsonb,null,YES,null
+postgres,auth,users,raw_user_meta_data,jsonb,null,YES,null
+postgres,auth,users,is_super_admin,boolean,null,YES,null
+postgres,auth,users,created_at,timestamp with time zone,null,YES,null
+postgres,auth,users,updated_at,timestamp with time zone,null,YES,null
+postgres,auth,users,phone,text,null,YES,NULL::character varying
+postgres,auth,users,phone_confirmed_at,timestamp with time zone,null,YES,null
+postgres,auth,users,phone_change,text,null,YES,''::character varying
+postgres,auth,users,phone_change_token,character varying,255,YES,''::character varying
+postgres,auth,users,phone_change_sent_at,timestamp with time zone,null,YES,null
+postgres,auth,users,confirmed_at,timestamp with time zone,null,YES,null
+postgres,auth,users,email_change_token_current,character varying,255,YES,''::character varying
+postgres,auth,users,email_change_confirm_status,smallint,null,YES,0
+postgres,auth,users,banned_until,timestamp with time zone,null,YES,null
+postgres,auth,users,reauthentication_token,character varying,255,YES,''::character varying
+postgres,auth,users,reauthentication_sent_at,timestamp with time zone,null,YES,null
+postgres,auth,users,is_sso_user,boolean,null,NO,false
+postgres,auth,users,deleted_at,timestamp with time zone,null,YES,null
+postgres,auth,users,is_anonymous,boolean,null,NO,false
+postgres,extensions,pg_stat_statements,userid,oid,null,YES,null
+postgres,extensions,pg_stat_statements,dbid,oid,null,YES,null
+postgres,extensions,pg_stat_statements,toplevel,boolean,null,YES,null
+postgres,extensions,pg_stat_statements,queryid,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,query,text,null,YES,null
+postgres,extensions,pg_stat_statements,plans,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,total_plan_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,min_plan_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,max_plan_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,mean_plan_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,stddev_plan_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,calls,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,total_exec_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,min_exec_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,max_exec_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,mean_exec_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,stddev_exec_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,rows,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,shared_blks_hit,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,shared_blks_read,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,shared_blks_dirtied,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,shared_blks_written,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,local_blks_hit,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,local_blks_read,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,local_blks_dirtied,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,local_blks_written,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,temp_blks_read,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,temp_blks_written,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,shared_blk_read_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,shared_blk_write_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,local_blk_read_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,local_blk_write_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,temp_blk_read_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,temp_blk_write_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,wal_records,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,wal_fpi,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,wal_bytes,numeric,null,YES,null
+postgres,extensions,pg_stat_statements,jit_functions,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,jit_generation_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,jit_inlining_count,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,jit_inlining_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,jit_optimization_count,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,jit_optimization_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,jit_emission_count,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,jit_emission_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,jit_deform_count,bigint,null,YES,null
+postgres,extensions,pg_stat_statements,jit_deform_time,double precision,null,YES,null
+postgres,extensions,pg_stat_statements,stats_since,timestamp with time zone,null,YES,null
+postgres,extensions,pg_stat_statements,minmax_stats_since,timestamp with time zone,null,YES,null
+postgres,extensions,pg_stat_statements_info,dealloc,bigint,null,YES,null
+postgres,extensions,pg_stat_statements_info,stats_reset,timestamp with time zone,null,YES,null
+postgres,public,active_members,account_number,integer,null,YES,null
+postgres,public,active_members,full_name,text,null,YES,null
+postgres,public,active_members,custom_membership_level,text,null,YES,null
+postgres,public,active_members,custom_member_since,date,null,YES,null
+postgres,public,active_members,custom_end_date,date,null,YES,null
+postgres,public,active_members,status,text,null,YES,null
+postgres,public,addresses,id,integer,null,NO,nextval('addresses_id_seq'::regclass)
+postgres,public,addresses,account_number,integer,null,YES,null
+postgres,public,addresses,address_line1,text,null,YES,null
+postgres,public,addresses,address_line2,text,null,YES,null
+postgres,public,addresses,city,text,null,YES,null
+postgres,public,addresses,state,text,null,YES,null
+postgres,public,addresses,zip_code,text,null,YES,null
+postgres,public,addresses,country,text,null,YES,null
+postgres,public,addresses,address_type,text,null,YES,null
+postgres,public,addresses,quality,text,null,YES,null
+postgres,public,addresses,is_primary,boolean,null,YES,false
+postgres,public,addresses,created_date,timestamp without time zone,null,YES,null
+postgres,public,addresses,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,appeals,id,integer,null,NO,nextval('appeals_id_seq'::regclass)
+postgres,public,appeals,name,text,null,NO,null
+postgres,public,appeals,campaign_name,text,null,YES,null
+postgres,public,appeals,description,text,null,YES,null
+postgres,public,appeals,appeal_type,text,null,YES,null
+postgres,public,appeals,created_date,timestamp without time zone,null,YES,CURRENT_TIMESTAMP
+postgres,public,appeals,last_modified_date,timestamp without time zone,null,YES,CURRENT_TIMESTAMP
+postgres,public,campaigns,id,integer,null,NO,nextval('campaigns_id_seq'::regclass)
+postgres,public,campaigns,name,text,null,NO,null
+postgres,public,campaigns,goal,numeric,null,YES,null
+postgres,public,campaigns,start_date,date,null,YES,null
+postgres,public,campaigns,end_date,date,null,YES,null
+postgres,public,campaigns,status,text,null,YES,null
+postgres,public,campaigns,category,text,null,YES,null
+postgres,public,campaigns,description,text,null,YES,null
+postgres,public,campaigns,created_date,timestamp without time zone,null,YES,CURRENT_TIMESTAMP
+postgres,public,campaigns,last_modified_date,timestamp without time zone,null,YES,CURRENT_TIMESTAMP
+postgres,public,constituent_summary,account_number,integer,null,YES,null
+postgres,public,constituent_summary,full_name,text,null,YES,null
+postgres,public,constituent_summary,type,text,null,YES,null
+postgres,public,constituent_summary,status,text,null,YES,null
+postgres,public,constituent_summary,custom_membership_level,text,null,YES,null
+postgres,public,constituent_summary,custom_member_since,date,null,YES,null
+postgres,public,constituent_summary,custom_end_date,date,null,YES,null
+postgres,public,constituent_summary,custom_tags,text,null,YES,null
+postgres,public,constituent_summary,address_line1,text,null,YES,null
+postgres,public,constituent_summary,city,text,null,YES,null
+postgres,public,constituent_summary,state,text,null,YES,null
+postgres,public,constituent_summary,zip_code,text,null,YES,null
+postgres,public,constituent_summary,email,text,null,YES,null
+postgres,public,constituent_summary,phone_number,text,null,YES,null
+postgres,public,constituents,account_number,integer,null,NO,null
+postgres,public,constituents,birthdate,date,null,YES,null
+postgres,public,constituents,communication_channel_preferred,text,null,YES,null
+postgres,public,constituents,communication_restriction_last_update_modified,timestamp without time zone,null,YES,null
+postgres,public,constituents,communication_restriction_last_update_reason,text,null,YES,null
+postgres,public,constituents,communication_restrictions,text,null,YES,null
+postgres,public,constituents,created_date,timestamp without time zone,null,YES,null
+postgres,public,constituents,created_name,text,null,YES,null
+postgres,public,constituents,email_interest_last_update_modified,timestamp without time zone,null,YES,null
+postgres,public,constituents,email_interest_last_update_reason,text,null,YES,null
+postgres,public,constituents,email_interests,text,null,YES,null
+postgres,public,constituents,email_interest_type,text,null,YES,null
+postgres,public,constituents,employer,text,null,YES,null
+postgres,public,constituents,envelope_name,text,null,YES,null
+postgres,public,constituents,facebook_id,text,null,YES,null
+postgres,public,constituents,first_name,text,null,YES,null
+postgres,public,constituents,formal_name,text,null,YES,null
+postgres,public,constituents,full_name,text,null,YES,null
+postgres,public,constituents,gender,text,null,YES,null
+postgres,public,constituents,informal_name,text,null,YES,null
+postgres,public,constituents,job_title,text,null,YES,null
+postgres,public,constituents,last_name,text,null,YES,null
+postgres,public,constituents,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,constituents,last_modified_name,text,null,YES,null
+postgres,public,constituents,linkedin_id,text,null,YES,null
+postgres,public,constituents,middle_name,text,null,YES,null
+postgres,public,constituents,prefix,text,null,YES,null
+postgres,public,constituents,recognition_name,text,null,YES,null
+postgres,public,constituents,sort_name,text,null,YES,null
+postgres,public,constituents,status,text,null,YES,null
+postgres,public,constituents,suffix,text,null,YES,null
+postgres,public,constituents,twitter_id,text,null,YES,null
+postgres,public,constituents,type,text,null,YES,null
+postgres,public,constituents,website,text,null,YES,null
+postgres,public,constituents,custom_birth_year,integer,null,YES,null
+postgres,public,constituents,custom_development_notes,text,null,YES,null
+postgres,public,constituents,custom_dietary_restrictions,text,null,YES,null
+postgres,public,constituents,custom_end_date,date,null,YES,null
+postgres,public,constituents,custom_ethnicity,text,null,YES,null
+postgres,public,constituents,custom_guest_names,text,null,YES,null
+postgres,public,constituents,custom_member_since,date,null,YES,null
+postgres,public,constituents,custom_membership_level,text,null,YES,null
+postgres,public,constituents,custom_occupation,text,null,YES,null
+postgres,public,constituents,custom_pronouns,text,null,YES,null
+postgres,public,constituents,custom_purchaser_contact_info,text,null,YES,null
+postgres,public,constituents,custom_purchaser_name,text,null,YES,null
+postgres,public,constituents,custom_sponsor_table_name,text,null,YES,null
+postgres,public,constituents,custom_start_date,date,null,YES,null
+postgres,public,constituents,custom_tags,text,null,YES,null
+postgres,public,constituents,custom_ticket_donation_count,integer,null,YES,null
+postgres,public,custom_fields,id,integer,null,NO,nextval('custom_fields_id_seq'::regclass)
+postgres,public,custom_fields,field_name,text,null,NO,null
+postgres,public,custom_fields,field_type,text,null,YES,null
+postgres,public,custom_fields,field_category,text,null,YES,null
+postgres,public,custom_fields,is_active,boolean,null,YES,true
+postgres,public,custom_fields,description,text,null,YES,null
+postgres,public,custom_fields,created_date,timestamp without time zone,null,YES,CURRENT_TIMESTAMP
+postgres,public,donation_summary,id,integer,null,YES,null
+postgres,public,donation_summary,amount,numeric,null,YES,null
+postgres,public,donation_summary,campaign_name,text,null,YES,null
+postgres,public,donation_summary,appeal_name,text,null,YES,null
+postgres,public,donation_summary,fund_name,text,null,YES,null
+postgres,public,donation_summary,custom_fiscal_year,text,null,YES,null
+postgres,public,donation_summary,transaction_date,date,null,YES,null
+postgres,public,donation_summary,method,text,null,YES,null
+postgres,public,donation_summary,account_number,integer,null,YES,null
+postgres,public,donation_summary,full_name,text,null,YES,null
+postgres,public,donation_summary,type,text,null,YES,null
+postgres,public,donation_summary,custom_membership_level,text,null,YES,null
+postgres,public,donations,id,integer,null,NO,nextval('donations_id_seq'::regclass)
+postgres,public,donations,transaction_number,integer,null,YES,null
+postgres,public,donations,acknowledgement_status,text,null,YES,null
+postgres,public,donations,amount,numeric,null,YES,null
+postgres,public,donations,appeal_name,text,null,YES,null
+postgres,public,donations,campaign_name,text,null,YES,null
+postgres,public,donations,created_date,timestamp without time zone,null,YES,null
+postgres,public,donations,created_name,text,null,YES,null
+postgres,public,donations,designation_number,integer,null,YES,null
+postgres,public,donations,fund_name,text,null,YES,null
+postgres,public,donations,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,donations,last_modified_name,text,null,YES,null
+postgres,public,donations,non_deductible,numeric,null,YES,0
+postgres,public,donations,note,text,null,YES,null
+postgres,public,donations,tribute_name,text,null,YES,null
+postgres,public,donations,tribute_type,text,null,YES,null
+postgres,public,donations,custom_donation_item,text,null,YES,null
+postgres,public,donations,custom_email_second_card,text,null,YES,null
+postgres,public,donations,custom_fee,numeric,null,YES,null
+postgres,public,donations,custom_fiscal_year,text,null,YES,null
+postgres,public,donations,custom_gift_message,text,null,YES,null
+postgres,public,donations,custom_guest_names,text,null,YES,null
+postgres,public,donations,custom_name_second_card,text,null,YES,null
+postgres,public,donations,custom_recipient_address,text,null,YES,null
+postgres,public,donations,custom_recipient_city,text,null,YES,null
+postgres,public,donations,custom_recipient_email,text,null,YES,null
+postgres,public,donations,custom_recipient_first_name,text,null,YES,null
+postgres,public,donations,custom_recipient_last_name,text,null,YES,null
+postgres,public,donations,custom_recipient_phone,text,null,YES,null
+postgres,public,donations,custom_recipient_state,text,null,YES,null
+postgres,public,donations,custom_recipient_zip,text,null,YES,null
+postgres,public,donations,custom_registration_type,text,null,YES,null
+postgres,public,donations,custom_test,text,null,YES,null
+postgres,public,donations,custom_ticket_quantity,integer,null,YES,null
+postgres,public,email_interests,id,integer,null,NO,nextval('email_interests_id_seq'::regclass)
+postgres,public,email_interests,account_number,integer,null,YES,null
+postgres,public,email_interests,interest_name,text,null,YES,null
+postgres,public,email_interests,is_subscribed,boolean,null,YES,true
+postgres,public,email_interests,subscription_date,timestamp without time zone,null,YES,null
+postgres,public,email_interests,unsubscription_date,timestamp without time zone,null,YES,null
+postgres,public,email_interests,created_date,timestamp without time zone,null,YES,null
+postgres,public,email_interests,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,emails,id,integer,null,NO,nextval('emails_id_seq'::regclass)
+postgres,public,emails,account_number,integer,null,YES,null
+postgres,public,emails,email,text,null,YES,null
+postgres,public,emails,email_type,text,null,YES,null
+postgres,public,emails,quality,text,null,YES,null
+postgres,public,emails,is_primary,boolean,null,YES,false
+postgres,public,emails,restrictions,text,null,YES,null
+postgres,public,emails,created_date,timestamp without time zone,null,YES,null
+postgres,public,emails,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,file_attachments,id,integer,null,NO,nextval('file_attachments_id_seq'::regclass)
+postgres,public,file_attachments,account_number,integer,null,YES,null
+postgres,public,file_attachments,file_name,text,null,YES,null
+postgres,public,file_attachments,file_path,text,null,YES,null
+postgres,public,file_attachments,file_type,text,null,YES,null
+postgres,public,file_attachments,file_size,integer,null,YES,null
+postgres,public,file_attachments,description,text,null,YES,null
+postgres,public,file_attachments,uploaded_by,text,null,YES,null
+postgres,public,file_attachments,created_date,timestamp without time zone,null,YES,null
+postgres,public,fiscal_year_trends,custom_fiscal_year,text,null,YES,null
+postgres,public,fiscal_year_trends,donation_count,bigint,null,YES,null
+postgres,public,fiscal_year_trends,unique_donors,bigint,null,YES,null
+postgres,public,fiscal_year_trends,total_amount,numeric,null,YES,null
+postgres,public,fiscal_year_trends,avg_donation,numeric,null,YES,null
+postgres,public,fiscal_year_trends,min_donation,numeric,null,YES,null
+postgres,public,fiscal_year_trends,max_donation,numeric,null,YES,null
+postgres,public,funds,id,integer,null,NO,nextval('funds_id_seq'::regclass)
+postgres,public,funds,name,text,null,NO,null
+postgres,public,funds,description,text,null,YES,null
+postgres,public,funds,fund_type,text,null,YES,null
+postgres,public,funds,status,text,null,YES,null
+postgres,public,funds,created_date,timestamp without time zone,null,YES,CURRENT_TIMESTAMP
+postgres,public,funds,last_modified_date,timestamp without time zone,null,YES,CURRENT_TIMESTAMP
+postgres,public,household_giving,household_id,integer,null,YES,null
+postgres,public,household_giving,household_name,text,null,YES,null
+postgres,public,household_giving,member_count,bigint,null,YES,null
+postgres,public,household_giving,total_donations,bigint,null,YES,null
+postgres,public,household_giving,total_giving,numeric,null,YES,null
+postgres,public,household_giving,last_gift_date,date,null,YES,null
+postgres,public,household_giving,first_gift_date,date,null,YES,null
+postgres,public,households,household_id,integer,null,NO,nextval('households_household_id_seq'::regclass)
+postgres,public,households,name,text,null,YES,null
+postgres,public,households,primary_account_number,integer,null,YES,null
+postgres,public,households,address_line1,text,null,YES,null
+postgres,public,households,address_line2,text,null,YES,null
+postgres,public,households,city,text,null,YES,null
+postgres,public,households,state,text,null,YES,null
+postgres,public,households,zip_code,text,null,YES,null
+postgres,public,households,country,text,null,YES,null
+postgres,public,households,created_date,timestamp without time zone,null,YES,null
+postgres,public,households,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,interactions,id,integer,null,NO,nextval('interactions_id_seq'::regclass)
+postgres,public,interactions,account_number,integer,null,YES,null
+postgres,public,interactions,interaction_date,date,null,YES,null
+postgres,public,interactions,interaction_type,text,null,YES,null
+postgres,public,interactions,subject,text,null,YES,null
+postgres,public,interactions,channel,text,null,YES,null
+postgres,public,interactions,description,text,null,YES,null
+postgres,public,interactions,outcome,text,null,YES,null
+postgres,public,interactions,created_by,text,null,YES,null
+postgres,public,interactions,created_date,timestamp without time zone,null,YES,null
+postgres,public,interactions,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,lightspeed_customers,id,text,null,NO,null
+postgres,public,lightspeed_customers,first_name,text,null,YES,null
+postgres,public,lightspeed_customers,last_name,text,null,YES,null
+postgres,public,lightspeed_customers,email,text,null,YES,null
+postgres,public,lightspeed_customers,phone,text,null,YES,null
+postgres,public,lightspeed_customers,created_at,timestamp with time zone,null,YES,null
+postgres,public,lightspeed_customers,updated_at,timestamp with time zone,null,YES,null
+postgres,public,lightspeed_inventory,id,text,null,NO,null
+postgres,public,lightspeed_inventory,product_id,text,null,YES,null
+postgres,public,lightspeed_inventory,current_amount,numeric,null,YES,0
+postgres,public,lightspeed_inventory,created_at,timestamp with time zone,null,YES,now()
+postgres,public,lightspeed_inventory,updated_at,timestamp with time zone,null,YES,now()
+postgres,public,lightspeed_outlets,id,text,null,NO,null
+postgres,public,lightspeed_outlets,name,text,null,YES,null
+postgres,public,lightspeed_outlets,address,text,null,YES,null
+postgres,public,lightspeed_outlets,phone,text,null,YES,null
+postgres,public,lightspeed_outlets,email,text,null,YES,null
+postgres,public,lightspeed_products,id,text,null,NO,null
+postgres,public,lightspeed_products,name,text,null,YES,null
+postgres,public,lightspeed_products,sku,text,null,YES,null
+postgres,public,lightspeed_products,price,numeric,null,YES,null
+postgres,public,lightspeed_products,cost,numeric,null,YES,null
+postgres,public,lightspeed_products,category_id,text,null,YES,null
+postgres,public,lightspeed_products,brand_id,text,null,YES,null
+postgres,public,lightspeed_products,created_at,timestamp with time zone,null,YES,null
+postgres,public,lightspeed_products,updated_at,timestamp with time zone,null,YES,null
+postgres,public,lightspeed_sale_line_items,id,text,null,NO,null
+postgres,public,lightspeed_sale_line_items,sale_id,text,null,YES,null
+postgres,public,lightspeed_sale_line_items,product_id,text,null,YES,null
+postgres,public,lightspeed_sale_line_items,price_total,numeric,null,YES,null
+postgres,public,lightspeed_sale_line_items,quantity,numeric,null,YES,null
+postgres,public,lightspeed_sale_line_items,status,text,null,YES,null
+postgres,public,lightspeed_sale_line_items,total_price,numeric,null,YES,null
+postgres,public,lightspeed_sales,id,text,null,NO,null
+postgres,public,lightspeed_sales,outlet_id,text,null,YES,null
+postgres,public,lightspeed_sales,register_id,text,null,YES,null
+postgres,public,lightspeed_sales,user_id,text,null,YES,null
+postgres,public,lightspeed_sales,customer_id,text,null,YES,null
+postgres,public,lightspeed_sales,invoice_number,text,null,YES,null
+postgres,public,lightspeed_sales,status,text,null,YES,null
+postgres,public,lightspeed_sales,total_price,numeric,null,YES,null
+postgres,public,lightspeed_sales,sale_date,timestamp with time zone,null,YES,null
+postgres,public,lightspeed_sales,created_at,timestamp with time zone,null,YES,null
+postgres,public,lightspeed_sales,updated_at,timestamp with time zone,null,YES,null
+postgres,public,membership_analytics,custom_membership_level,text,null,YES,null
+postgres,public,membership_analytics,member_count,bigint,null,YES,null
+postgres,public,membership_analytics,active_count,bigint,null,YES,null
+postgres,public,membership_analytics,avg_years_member,numeric,null,YES,null
+postgres,public,membership_analytics,earliest_member,date,null,YES,null
+postgres,public,membership_analytics,latest_member,date,null,YES,null
+postgres,public,notes,id,integer,null,NO,nextval('notes_id_seq'::regclass)
+postgres,public,notes,account_number,integer,null,YES,null
+postgres,public,notes,note_date,date,null,YES,null
+postgres,public,notes,note_text,text,null,YES,null
+postgres,public,notes,note_type,text,null,YES,null
+postgres,public,notes,author,text,null,YES,null
+postgres,public,notes,is_private,boolean,null,YES,false
+postgres,public,notes,created_date,timestamp without time zone,null,YES,null
+postgres,public,notes,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,phones,id,integer,null,NO,nextval('phones_id_seq'::regclass)
+postgres,public,phones,account_number,integer,null,YES,null
+postgres,public,phones,phone_number,text,null,YES,null
+postgres,public,phones,phone_type,text,null,YES,null
+postgres,public,phones,quality,text,null,YES,null
+postgres,public,phones,is_primary,boolean,null,YES,false
+postgres,public,phones,created_date,timestamp without time zone,null,YES,null
+postgres,public,phones,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,pledge_payments,id,integer,null,NO,nextval('pledge_payments_id_seq'::regclass)
+postgres,public,pledge_payments,pledge_id,integer,null,YES,null
+postgres,public,pledge_payments,transaction_number,integer,null,YES,null
+postgres,public,pledge_payments,payment_amount,numeric,null,YES,null
+postgres,public,pledge_payments,payment_date,date,null,YES,null
+postgres,public,pledge_payments,status,text,null,YES,null
+postgres,public,pledge_payments,created_date,timestamp without time zone,null,YES,null
+postgres,public,pledge_payments,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,pledges,id,integer,null,NO,nextval('pledges_id_seq'::regclass)
+postgres,public,pledges,account_number,integer,null,YES,null
+postgres,public,pledges,pledge_amount,numeric,null,YES,null
+postgres,public,pledges,balance_remaining,numeric,null,YES,null
+postgres,public,pledges,frequency,text,null,YES,null
+postgres,public,pledges,installments,integer,null,YES,null
+postgres,public,pledges,start_date,date,null,YES,null
+postgres,public,pledges,next_payment_date,date,null,YES,null
+postgres,public,pledges,campaign_name,text,null,YES,null
+postgres,public,pledges,fund_name,text,null,YES,null
+postgres,public,pledges,status,text,null,YES,null
+postgres,public,pledges,created_date,timestamp without time zone,null,YES,null
+postgres,public,pledges,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,processing_infos,id,integer,null,NO,nextval('processing_infos_id_seq'::regclass)
+postgres,public,processing_infos,transaction_number,integer,null,YES,null
+postgres,public,processing_infos,processor_name,text,null,YES,null
+postgres,public,processing_infos,processor_reference,text,null,YES,null
+postgres,public,processing_infos,processor_fee,numeric,null,YES,null
+postgres,public,processing_infos,processing_date,timestamp without time zone,null,YES,null
+postgres,public,processing_infos,status,text,null,YES,null
+postgres,public,processing_infos,created_date,timestamp without time zone,null,YES,null
+postgres,public,recurring_donation_payments,id,integer,null,NO,nextval('recurring_donation_payments_id_seq'::regclass)
+postgres,public,recurring_donation_payments,recurring_donation_id,integer,null,YES,null
+postgres,public,recurring_donation_payments,transaction_number,integer,null,YES,null
+postgres,public,recurring_donation_payments,payment_amount,numeric,null,YES,null
+postgres,public,recurring_donation_payments,payment_date,date,null,YES,null
+postgres,public,recurring_donation_payments,status,text,null,YES,null
+postgres,public,recurring_donation_payments,created_date,timestamp without time zone,null,YES,null
+postgres,public,recurring_donation_payments,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,recurring_donations,id,integer,null,NO,nextval('recurring_donations_id_seq'::regclass)
+postgres,public,recurring_donations,account_number,integer,null,YES,null
+postgres,public,recurring_donations,amount,numeric,null,YES,null
+postgres,public,recurring_donations,frequency,text,null,YES,null
+postgres,public,recurring_donations,start_date,date,null,YES,null
+postgres,public,recurring_donations,end_date,date,null,YES,null
+postgres,public,recurring_donations,next_payment_date,date,null,YES,null
+postgres,public,recurring_donations,campaign_name,text,null,YES,null
+postgres,public,recurring_donations,fund_name,text,null,YES,null
+postgres,public,recurring_donations,status,text,null,YES,null
+postgres,public,recurring_donations,created_date,timestamp without time zone,null,YES,null
+postgres,public,recurring_donations,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,refunds,id,integer,null,NO,nextval('refunds_id_seq'::regclass)
+postgres,public,refunds,original_transaction_number,integer,null,YES,null
+postgres,public,refunds,refund_transaction_number,integer,null,YES,null
+postgres,public,refunds,refund_amount,numeric,null,YES,null
+postgres,public,refunds,refund_date,date,null,YES,null
+postgres,public,refunds,reason,text,null,YES,null
+postgres,public,refunds,status,text,null,YES,null
+postgres,public,refunds,created_date,timestamp without time zone,null,YES,null
+postgres,public,refunds,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,relationship_roles,id,integer,null,NO,nextval('relationship_roles_id_seq'::regclass)
+postgres,public,relationship_roles,role_name,text,null,NO,null
+postgres,public,relationship_roles,description,text,null,YES,null
+postgres,public,relationship_roles,is_active,boolean,null,YES,true
+postgres,public,relationship_roles,created_date,timestamp without time zone,null,YES,CURRENT_TIMESTAMP
+postgres,public,relationships,id,integer,null,NO,nextval('relationships_id_seq'::regclass)
+postgres,public,relationships,primary_account_number,integer,null,YES,null
+postgres,public,relationships,related_account_number,integer,null,YES,null
+postgres,public,relationships,relationship_type,text,null,YES,null
+postgres,public,relationships,is_reciprocal,boolean,null,YES,true
+postgres,public,relationships,start_date,date,null,YES,null
+postgres,public,relationships,end_date,date,null,YES,null
+postgres,public,relationships,created_date,timestamp without time zone,null,YES,null
+postgres,public,relationships,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,soft_credits,id,integer,null,NO,nextval('soft_credits_id_seq'::regclass)
+postgres,public,soft_credits,transaction_number,integer,null,YES,null
+postgres,public,soft_credits,account_number,integer,null,YES,null
+postgres,public,soft_credits,credit_amount,numeric,null,YES,null
+postgres,public,soft_credits,credit_percentage,numeric,null,YES,null
+postgres,public,soft_credits,credit_type,text,null,YES,null
+postgres,public,soft_credits,created_date,timestamp without time zone,null,YES,null
+postgres,public,soft_credits,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,sync_log,id,integer,null,NO,nextval('sync_log_id_seq'::regclass)
+postgres,public,sync_log,timestamp,timestamp with time zone,null,YES,now()
+postgres,public,sync_log,entity_type,text,null,NO,null
+postgres,public,sync_log,action,text,null,NO,null
+postgres,public,sync_log,status,text,null,NO,null
+postgres,public,sync_log,duration_seconds,numeric,null,YES,null
+postgres,public,sync_log,records_processed,integer,null,YES,0
+postgres,public,sync_log,error_details,text,null,YES,null
+postgres,public,sync_log,metadata,jsonb,null,YES,null
+postgres,public,sync_state,entity_type,text,null,NO,null
+postgres,public,sync_state,last_sync_time,timestamp with time zone,null,YES,null
+postgres,public,sync_state,status,text,null,YES,'pending'::text
+postgres,public,sync_state,error_message,text,null,YES,null
+postgres,public,sync_state,created_at,timestamp with time zone,null,YES,now()
+postgres,public,sync_state,updated_at,timestamp with time zone,null,YES,now()
+postgres,public,sync_state,last_version,bigint,null,YES,null
+postgres,public,tasks,id,integer,null,NO,nextval('tasks_id_seq'::regclass)
+postgres,public,tasks,account_number,integer,null,YES,null
+postgres,public,tasks,subject,text,null,YES,null
+postgres,public,tasks,description,text,null,YES,null
+postgres,public,tasks,due_date,date,null,YES,null
+postgres,public,tasks,completion_date,date,null,YES,null
+postgres,public,tasks,status,text,null,YES,null
+postgres,public,tasks,priority,text,null,YES,null
+postgres,public,tasks,assigned_to,text,null,YES,null
+postgres,public,tasks,task_type,text,null,YES,null
+postgres,public,tasks,created_date,timestamp without time zone,null,YES,null
+postgres,public,tasks,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,transaction_processor_accounts,id,integer,null,NO,nextval('transaction_processor_accounts_id_seq'::regclass)
+postgres,public,transaction_processor_accounts,processor_name,text,null,YES,null
+postgres,public,transaction_processor_accounts,account_name,text,null,YES,null
+postgres,public,transaction_processor_accounts,account_reference,text,null,YES,null
+postgres,public,transaction_processor_accounts,is_active,boolean,null,YES,true
+postgres,public,transaction_processor_accounts,created_date,timestamp without time zone,null,YES,CURRENT_TIMESTAMP
+postgres,public,transactions,transaction_number,integer,null,NO,null
+postgres,public,transactions,account_number,integer,null,NO,null
+postgres,public,transactions,amount,numeric,null,YES,null
+postgres,public,transactions,check_date,date,null,YES,null
+postgres,public,transactions,check_number,text,null,YES,null
+postgres,public,transactions,created_date,timestamp without time zone,null,YES,null
+postgres,public,transactions,created_name,text,null,YES,null
+postgres,public,transactions,transaction_date,date,null,YES,null
+postgres,public,transactions,in_kind_description,text,null,YES,null
+postgres,public,transactions,in_kind_market_value,numeric,null,YES,null
+postgres,public,transactions,in_kind_type,text,null,YES,null
+postgres,public,transactions,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,transactions,last_modified_name,text,null,YES,null
+postgres,public,transactions,method,text,null,YES,null
+postgres,public,tributes,id,integer,null,NO,nextval('tributes_id_seq'::regclass)
+postgres,public,tributes,transaction_number,integer,null,YES,null
+postgres,public,tributes,tribute_name,text,null,YES,null
+postgres,public,tributes,tribute_type,text,null,YES,null
+postgres,public,tributes,honoree_name,text,null,YES,null
+postgres,public,tributes,honoree_relationship,text,null,YES,null
+postgres,public,tributes,notification_name,text,null,YES,null
+postgres,public,tributes,notification_address,text,null,YES,null
+postgres,public,tributes,notification_email,text,null,YES,null
+postgres,public,tributes,created_date,timestamp without time zone,null,YES,null
+postgres,public,tributes,last_modified_date,timestamp without time zone,null,YES,null
+postgres,public,users,id,integer,null,NO,nextval('users_id_seq'::regclass)
+postgres,public,users,username,text,null,NO,null
+postgres,public,users,full_name,text,null,YES,null
+postgres,public,users,email,text,null,YES,null
+postgres,public,users,role,text,null,YES,null
+postgres,public,users,is_active,boolean,null,YES,true
+postgres,public,users,created_date,timestamp without time zone,null,YES,CURRENT_TIMESTAMP
+postgres,public,users,last_login_date,timestamp without time zone,null,YES,null
+postgres,public,wallet_items,id,integer,null,NO,nextval('wallet_items_id_seq'::regclass)
+postgres,public,wallet_items,account_number,integer,null,YES,null
+postgres,public,wallet_items,payment_method_type,text,null,YES,null
+postgres,public,wallet_items,payment_method_reference,text,null,YES,null
+postgres,public,wallet_items,is_default,boolean,null,YES,false
+postgres,public,wallet_items,is_active,boolean,null,YES,true
+postgres,public,wallet_items,created_date,timestamp without time zone,null,YES,null
+postgres,public,wallet_items,last_modified_date,timestamp without time zone,null,YES,null
+postgres,realtime,messages,topic,text,null,NO,null
+postgres,realtime,messages,extension,text,null,NO,null
+postgres,realtime,messages,payload,jsonb,null,YES,null
+postgres,realtime,messages,event,text,null,YES,null
+postgres,realtime,messages,private,boolean,null,YES,false
+postgres,realtime,messages,updated_at,timestamp without time zone,null,NO,now()
+postgres,realtime,messages,inserted_at,timestamp without time zone,null,NO,now()
+postgres,realtime,messages,id,uuid,null,NO,gen_random_uuid()
+postgres,realtime,schema_migrations,version,bigint,null,NO,null
+postgres,realtime,schema_migrations,inserted_at,timestamp without time zone,null,YES,null
+postgres,realtime,subscription,id,bigint,null,NO,null
+postgres,realtime,subscription,subscription_id,uuid,null,NO,null
+postgres,realtime,subscription,entity,regclass,null,NO,null
+postgres,realtime,subscription,filters,ARRAY,null,NO,'{}'::realtime.user_defined_filter[]
+postgres,realtime,subscription,claims,jsonb,null,NO,null
+postgres,realtime,subscription,claims_role,regrole,null,NO,null
+postgres,realtime,subscription,created_at,timestamp without time zone,null,NO,"timezone('utc'::text, now())"
+postgres,storage,buckets,id,text,null,NO,null
+postgres,storage,buckets,name,text,null,NO,null
+postgres,storage,buckets,owner,uuid,null,YES,null
+postgres,storage,buckets,created_at,timestamp with time zone,null,YES,now()
+postgres,storage,buckets,updated_at,timestamp with time zone,null,YES,now()
+postgres,storage,buckets,public,boolean,null,YES,false
+postgres,storage,buckets,avif_autodetection,boolean,null,YES,false
+postgres,storage,buckets,file_size_limit,bigint,null,YES,null
+postgres,storage,buckets,allowed_mime_types,ARRAY,null,YES,null
+postgres,storage,buckets,owner_id,text,null,YES,null
+postgres,storage,migrations,id,integer,null,NO,null
+postgres,storage,migrations,name,character varying,100,NO,null
+postgres,storage,migrations,hash,character varying,40,NO,null
+postgres,storage,migrations,executed_at,timestamp without time zone,null,YES,CURRENT_TIMESTAMP
+postgres,storage,objects,id,uuid,null,NO,gen_random_uuid()
+postgres,storage,objects,bucket_id,text,null,YES,null
+postgres,storage,objects,name,text,null,YES,null
+postgres,storage,objects,owner,uuid,null,YES,null
+postgres,storage,objects,created_at,timestamp with time zone,null,YES,now()
+postgres,storage,objects,updated_at,timestamp with time zone,null,YES,now()
+postgres,storage,objects,last_accessed_at,timestamp with time zone,null,YES,now()
+postgres,storage,objects,metadata,jsonb,null,YES,null
+postgres,storage,objects,path_tokens,ARRAY,null,YES,null
+postgres,storage,objects,version,text,null,YES,null
+postgres,storage,objects,owner_id,text,null,YES,null
+postgres,storage,objects,user_metadata,jsonb,null,YES,null
+postgres,storage,s3_multipart_uploads,id,text,null,NO,null
+postgres,storage,s3_multipart_uploads,in_progress_size,bigint,null,NO,0
+postgres,storage,s3_multipart_uploads,upload_signature,text,null,NO,null
+postgres,storage,s3_multipart_uploads,bucket_id,text,null,NO,null
+postgres,storage,s3_multipart_uploads,key,text,null,NO,null
+postgres,storage,s3_multipart_uploads,version,text,null,NO,null
+postgres,storage,s3_multipart_uploads,owner_id,text,null,YES,null
+postgres,storage,s3_multipart_uploads,created_at,timestamp with time zone,null,NO,now()
+postgres,storage,s3_multipart_uploads,user_metadata,jsonb,null,YES,null
+postgres,storage,s3_multipart_uploads_parts,id,uuid,null,NO,gen_random_uuid()
+postgres,storage,s3_multipart_uploads_parts,upload_id,text,null,NO,null
+postgres,storage,s3_multipart_uploads_parts,size,bigint,null,NO,0
+postgres,storage,s3_multipart_uploads_parts,part_number,integer,null,NO,null
+postgres,storage,s3_multipart_uploads_parts,bucket_id,text,null,NO,null
+postgres,storage,s3_multipart_uploads_parts,key,text,null,NO,null
+postgres,storage,s3_multipart_uploads_parts,etag,text,null,NO,null
+postgres,storage,s3_multipart_uploads_parts,owner_id,text,null,YES,null
+postgres,storage,s3_multipart_uploads_parts,version,text,null,NO,null
+postgres,storage,s3_multipart_uploads_parts,created_at,timestamp with time zone,null,NO,now()
+postgres,vault,decrypted_secrets,id,uuid,null,YES,null
+postgres,vault,decrypted_secrets,name,text,null,YES,null
+postgres,vault,decrypted_secrets,description,text,null,YES,null
+postgres,vault,decrypted_secrets,secret,text,null,YES,null
+postgres,vault,decrypted_secrets,decrypted_secret,text,null,YES,null
+postgres,vault,decrypted_secrets,key_id,uuid,null,YES,null
+postgres,vault,decrypted_secrets,nonce,bytea,null,YES,null
+postgres,vault,decrypted_secrets,created_at,timestamp with time zone,null,YES,null
+postgres,vault,decrypted_secrets,updated_at,timestamp with time zone,null,YES,null
+postgres,vault,secrets,id,uuid,null,NO,gen_random_uuid()
+postgres,vault,secrets,name,text,null,YES,null
+postgres,vault,secrets,description,text,null,NO,''::text
+postgres,vault,secrets,secret,text,null,NO,null
+postgres,vault,secrets,key_id,uuid,null,YES,null
+postgres,vault,secrets,nonce,bytea,null,YES,vault._crypto_aead_det_noncegen()
+postgres,vault,secrets,created_at,timestamp with time zone,null,NO,CURRENT_TIMESTAMP
+postgres,vault,secrets,updated_at,timestamp with time zone,null,NO,CURRENT_TIMESTAMP

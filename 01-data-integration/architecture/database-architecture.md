@@ -1,7 +1,7 @@
-# Craft Contemporary Database Architecture
+# Craft Contemporary Database Architecture - IMPLEMENTED SCHEMA
 
 ## Overview
-This document outlines the database architecture for syncing data from Lightspeed Retail POS to Supabase, designed to support Craft Contemporary's retail operations.
+This document outlines the **actual implemented** database architecture for syncing data from Lightspeed Retail POS to Supabase. This reflects the working production system.
 
 ## Architecture Diagram
 ```
@@ -12,227 +12,131 @@ This document outlines the database architecture for syncing data from Lightspee
                                    │
                                    ▼
                             ┌──────────────┐
-                            │   Sync Log   │
-                            │  & Metadata  │
+                            │ sync_state + │
+                            │   sync_log   │
+                            └──────────────┘
+                                   │
+                                   ▼
+                            ┌──────────────┐
+                            │ Flask Status │
+                            │  Dashboard   │
                             └──────────────┘
 ```
 
-## Database Schema
+## Database Schema - ACTUAL IMPLEMENTATION
 
-### Core Tables
+### Core Lightspeed Data Tables
 
-#### 1. Products
+#### 1. lightspeed_products
 ```sql
-CREATE TABLE products (
-    id UUID PRIMARY KEY,                          -- Lightspeed product_id
-    handle VARCHAR(255),                          -- Product handle/slug
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    brand_id UUID,
-    supplier_id UUID,
-    product_type_id UUID,
-    sku VARCHAR(255),
-    supply_price DECIMAL(10, 2),
-    retail_price DECIMAL(10, 2),
-    tax_id UUID,
-    is_active BOOLEAN DEFAULT true,
-    track_inventory BOOLEAN DEFAULT true,
-    created_at TIMESTAMP WITH TIME ZONE,
-    updated_at TIMESTAMP WITH TIME ZONE,
-    deleted_at TIMESTAMP WITH TIME ZONE,
-    lightspeed_version BIGINT,                    -- For version tracking
-    
-    INDEXES:
-    - idx_products_sku ON (sku)
-    - idx_products_active ON (is_active)
-    - idx_products_updated ON (updated_at)
+CREATE TABLE lightspeed_products (
+    id TEXT PRIMARY KEY,                          -- Lightspeed product_id
+    -- Additional fields populated by sync process
+    -- (Schema simplified from Lightspeed API response)
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 ```
 
-#### 2. Inventory
+#### 2. lightspeed_inventory
 ```sql
-CREATE TABLE inventory (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    product_id UUID NOT NULL REFERENCES products(id),
-    outlet_id UUID NOT NULL,
-    current_amount DECIMAL(10, 2) NOT NULL DEFAULT 0,
-    reorder_point DECIMAL(10, 2),
-    reorder_amount DECIMAL(10, 2),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    
-    UNIQUE(product_id, outlet_id),
-    
-    INDEXES:
-    - idx_inventory_product ON (product_id)
-    - idx_inventory_outlet ON (outlet_id)
-    - idx_inventory_low_stock ON (current_amount, reorder_point)
+CREATE TABLE lightspeed_inventory (
+    id TEXT PRIMARY KEY,
+    product_id TEXT,
+    current_amount NUMERIC DEFAULT 0,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 ```
 
-#### 3. Product Categories
+#### 3. lightspeed_customers
 ```sql
-CREATE TABLE product_categories (
-    id UUID PRIMARY KEY,                          -- Lightspeed category_id
-    name VARCHAR(255) NOT NULL,
-    parent_id UUID REFERENCES product_categories(id),
-    position INTEGER,
-    created_at TIMESTAMP WITH TIME ZONE,
-    updated_at TIMESTAMP WITH TIME ZONE,
-    deleted_at TIMESTAMP WITH TIME ZONE,
-    
-    INDEXES:
-    - idx_categories_parent ON (parent_id)
-    - idx_categories_name ON (name)
-);
-
-CREATE TABLE product_category_mappings (
-    product_id UUID REFERENCES products(id),
-    category_id UUID REFERENCES product_categories(id),
-    PRIMARY KEY (product_id, category_id)
+CREATE TABLE lightspeed_customers (
+    id TEXT PRIMARY KEY,                          -- Lightspeed customer_id
+    -- Additional fields populated by sync process
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 ```
 
-#### 4. Sales
+#### 4. lightspeed_sales
 ```sql
-CREATE TABLE sales (
-    id UUID PRIMARY KEY,                          -- Lightspeed sale_id
-    outlet_id UUID NOT NULL,
-    register_id UUID NOT NULL,
-    user_id UUID,
-    customer_id UUID,
-    invoice_number VARCHAR(50),
-    receipt_number VARCHAR(50),
-    short_code VARCHAR(20),
-    status VARCHAR(50),                           -- CLOSED, LAYBY, SAVED, etc.
-    sale_date TIMESTAMP WITH TIME ZONE NOT NULL,
-    total_price DECIMAL(10, 2),
-    total_tax DECIMAL(10, 2),
-    total_discount DECIMAL(10, 2),
-    total_loyalty DECIMAL(10, 2),
-    note TEXT,
-    created_at TIMESTAMP WITH TIME ZONE,
-    updated_at TIMESTAMP WITH TIME ZONE,
-    deleted_at TIMESTAMP WITH TIME ZONE,
-    lightspeed_version BIGINT,
-    
-    INDEXES:
-    - idx_sales_date ON (sale_date)
-    - idx_sales_status ON (status)
-    - idx_sales_customer ON (customer_id)
-    - idx_sales_outlet ON (outlet_id)
-    - idx_sales_invoice ON (invoice_number)
+CREATE TABLE lightspeed_sales (
+    id TEXT PRIMARY KEY,                          -- Lightspeed sale_id
+    -- Additional fields populated by sync process
+    -- Note: Some foreign key constraints removed for sync reliability
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 ```
 
-#### 5. Sale Line Items
+#### 5. lightspeed_sale_line_items
 ```sql
-CREATE TABLE sale_line_items (
-    id UUID PRIMARY KEY,                          -- Lightspeed line_item_id
-    sale_id UUID NOT NULL REFERENCES sales(id) ON DELETE CASCADE,
-    product_id UUID REFERENCES products(id),
-    quantity DECIMAL(10, 2) NOT NULL,
-    unit_price DECIMAL(10, 2),
-    unit_cost DECIMAL(10, 2),
-    unit_discount DECIMAL(10, 2),
-    unit_tax DECIMAL(10, 2),
-    total_price DECIMAL(10, 2),
-    total_cost DECIMAL(10, 2),
-    total_discount DECIMAL(10, 2),
-    total_tax DECIMAL(10, 2),
-    status VARCHAR(50),
-    sequence INTEGER,
-    is_return BOOLEAN DEFAULT false,
-    note TEXT,
-    
-    INDEXES:
-    - idx_line_items_sale ON (sale_id)
-    - idx_line_items_product ON (product_id)
+CREATE TABLE lightspeed_sale_line_items (
+    id TEXT PRIMARY KEY,                          -- Lightspeed line_item_id
+    sale_id TEXT,                                 -- References lightspeed_sales(id)
+    -- Additional fields populated by sync process
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 ```
 
-#### 6. Customers
+#### 6. lightspeed_outlets
 ```sql
-CREATE TABLE customers (
-    id UUID PRIMARY KEY,                          -- Lightspeed customer_id
-    customer_code VARCHAR(100),
-    email VARCHAR(255),
-    first_name VARCHAR(100),
-    last_name VARCHAR(100),
-    company_name VARCHAR(255),
-    phone VARCHAR(50),
-    mobile VARCHAR(50),
-    customer_group_id UUID,
-    loyalty_enabled BOOLEAN DEFAULT false,
-    created_at TIMESTAMP WITH TIME ZONE,
-    updated_at TIMESTAMP WITH TIME ZONE,
-    deleted_at TIMESTAMP WITH TIME ZONE,
-    
-    INDEXES:
-    - idx_customers_email ON (email)
-    - idx_customers_code ON (customer_code)
-    - idx_customers_name ON (last_name, first_name)
+CREATE TABLE lightspeed_outlets (
+    id TEXT PRIMARY KEY,                          -- Lightspeed outlet_id
+    -- Additional fields populated by sync process
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 ```
 
-#### 7. Suppliers
-```sql
-CREATE TABLE suppliers (
-    id UUID PRIMARY KEY,                          -- Lightspeed supplier_id
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    created_at TIMESTAMP WITH TIME ZONE,
-    updated_at TIMESTAMP WITH TIME ZONE,
-    deleted_at TIMESTAMP WITH TIME ZONE
-);
-```
+### Implementation Note
+All `lightspeed_*` tables contain additional fields that are populated dynamically from the Lightspeed API responses. The exact schema varies based on the API data structure for each entity type.
 
-#### 8. Brands
-```sql
-CREATE TABLE brands (
-    id UUID PRIMARY KEY,                          -- Lightspeed brand_id
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    created_at TIMESTAMP WITH TIME ZONE,
-    updated_at TIMESTAMP WITH TIME ZONE,
-    deleted_at TIMESTAMP WITH TIME ZONE
-);
-```
+### Sync Management Tables - CORE INFRASTRUCTURE
 
-### Sync Management Tables
-
-#### 9. Sync Log
+#### 7. sync_log - Operational History
 ```sql
 CREATE TABLE sync_log (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    sync_type VARCHAR(50) NOT NULL,              -- 'historical', 'incremental'
-    entity_type VARCHAR(50) NOT NULL,            -- 'products', 'sales', etc.
-    status VARCHAR(50) NOT NULL,                 -- 'started', 'completed', 'failed'
-    started_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
-    completed_at TIMESTAMP WITH TIME ZONE,
+    id SERIAL PRIMARY KEY,
+    timestamp TIMESTAMPTZ DEFAULT NOW(),
+    entity_type TEXT NOT NULL,                   -- 'customers', 'outlets', 'products', 'sales', 'sale_line_items', 'inventory'
+    action TEXT NOT NULL,                        -- 'incremental_sync', 'historical_import'
+    status TEXT NOT NULL,                        -- 'started', 'completed', 'failed'
+    duration_seconds NUMERIC,
     records_processed INTEGER DEFAULT 0,
-    records_created INTEGER DEFAULT 0,
-    records_updated INTEGER DEFAULT 0,
-    records_deleted INTEGER DEFAULT 0,
-    error_message TEXT,
-    metadata JSONB,                              -- Additional sync details
-    
-    INDEXES:
-    - idx_sync_log_date ON (started_at)
-    - idx_sync_log_status ON (status)
-    - idx_sync_log_entity ON (entity_type)
-);
-```
-
-#### 10. Sync State
-```sql
-CREATE TABLE sync_state (
-    entity_type VARCHAR(50) PRIMARY KEY,
-    last_sync_timestamp TIMESTAMP WITH TIME ZONE,
-    last_successful_sync TIMESTAMP WITH TIME ZONE,
-    last_version BIGINT,                         -- For version-based sync
+    error_details TEXT,
     metadata JSONB
 );
+
+-- Performance indexes
+CREATE INDEX idx_sync_log_timestamp ON sync_log (timestamp);
+CREATE INDEX idx_sync_log_entity_type ON sync_log (entity_type);
+CREATE INDEX idx_sync_log_status ON sync_log (status);
+```
+
+#### 8. sync_state - Current Status Tracking
+```sql
+CREATE TABLE sync_state (
+    entity_type TEXT PRIMARY KEY,
+    last_sync_time TIMESTAMPTZ,
+    status TEXT DEFAULT 'pending',               -- 'success', 'failed', 'pending', 'never_synced'
+    error_message TEXT,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW(),
+    last_version BIGINT                          -- For Lightspeed version-based sync
+);
+
+-- Initialize with the 6 entity types
+INSERT INTO sync_state (entity_type, status) VALUES 
+    ('customers', 'never_synced'),
+    ('outlets', 'never_synced'),
+    ('products', 'never_synced'),
+    ('sales', 'never_synced'),
+    ('sale_line_items', 'never_synced'),
+    ('inventory', 'never_synced')
+ON CONFLICT (entity_type) DO NOTHING;
 ```
 
 ### Supporting Tables
@@ -419,21 +323,25 @@ FROM sync_state;
    - Inventory levels
    - Customer growth
 
-## Future Considerations
+## Next Phase: Analytics Dashboard
 
-### Potential Enhancements
-1. **Real-time sync** via webhooks (if Lightspeed supports)
-2. **Data warehousing** for advanced analytics
-3. **Cache layer** for frequently accessed data
-4. **Event streaming** for downstream systems
-5. **Multi-outlet** data segregation
-6. **Archival strategy** for old transactions
+This data integration system serves as the foundation for **Phase 2: Analytics Dashboard** (see `../02-analytics-dashboard/`), which will provide executive-level business insights through a Streamlit interface.
 
-### Scalability Plans
-- Implement connection pooling
-- Consider read replicas for reporting
-- Add materialized views for complex queries
-- Implement data retention policies
+### Data Available for Analytics
+- **Complete sales history** in `lightspeed_sales` and `lightspeed_sale_line_items`
+- **Product catalog** with inventory levels
+- **Customer database** for segmentation analysis
+- **Multi-outlet data** for location-based insights
 
-## Conclusion
-This architecture provides a robust foundation for syncing Lightspeed POS data to Supabase, with considerations for performance, maintainability, and future growth. The design prioritizes data integrity while keeping the implementation simple and reliable.
+## Implementation Notes
+
+This system successfully transformed Craft Contemporary's data infrastructure from:
+- **Before**: Data locked in Lightspeed POS system
+- **After**: Complete data sync to Supabase with monitoring dashboard
+
+**Result**: Foundation established for data-driven decision making and executive analytics dashboard development.
+
+---
+**Document Status**: ✅ UPDATED - Reflects actual production implementation  
+**Last Updated**: 2025-07-17  
+**System Status**: Production ready with daily sync operations

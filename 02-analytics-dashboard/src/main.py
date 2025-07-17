@@ -23,7 +23,6 @@ st.set_page_config(
     layout="wide"
 )
 
-
 @st.cache_resource
 def init_supabase():
     """Initialize Supabase client with caching"""
@@ -33,14 +32,14 @@ def init_supabase():
     return create_client(SUPABASE_URL, SUPABASE_KEY)
 
 @st.cache_data(ttl=300)  # Cache for 5 minutes
-def load_sales_data():
+def load_sales_data(date_from, date_to):
     """Load sales data with caching"""
     try:
         supabase = init_supabase()
-        thirty_days_ago = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
         response = supabase.table("lightspeed_sales")\
             .select("*")\
-            .gte("sale_date", thirty_days_ago)\
+            .gte("sale_date", date_from)\
+            .lte("sale_date", date_to)\
             .execute()
         return pd.DataFrame(response.data)
     except Exception as e:
@@ -61,14 +60,67 @@ def load_product_data():
         return pd.DataFrame()
 
 @st.cache_data(ttl=300)
-def load_sales_with_products():
+def load_sales_with_products(date_from, date_to):
     """Load sales line items with product details"""
     try:
         supabase = init_supabase()
-        response = supabase.table("lightspeed_sale_line_items")\
-            .select("*, lightspeed_products(name, price)")\
+        
+        # First get sales in date range
+        sales_response = supabase.table("lightspeed_sales")\
+            .select("id")\
+            .gte("sale_date", date_from)\
+            .lte("sale_date", date_to)\
             .execute()
-        return pd.DataFrame(response.data)
+        
+        if not sales_response.data:
+            return pd.DataFrame()
+        
+        sale_ids = [sale['id'] for sale in sales_response.data]
+        
+        # Get line items for these sales (in batches due to query limits)
+        all_line_items = []
+        batch_size = 50
+        
+        for i in range(0, len(sale_ids), batch_size):
+            batch_ids = sale_ids[i:i+batch_size]
+            response = supabase.table("lightspeed_sale_line_items")\
+                .select("*, product_id")\
+                .in_("sale_id", batch_ids)\
+                .execute()
+            all_line_items.extend(response.data)
+        
+        # Get product details separately
+        line_items_df = pd.DataFrame(all_line_items)
+        if line_items_df.empty:
+            return pd.DataFrame()
+            
+        # Get unique product IDs
+        product_ids = line_items_df['product_id'].dropna().unique().tolist()
+        
+        # Fetch product details
+        products_data = []
+        for i in range(0, len(product_ids), batch_size):
+            batch_product_ids = product_ids[i:i+batch_size]
+            response = supabase.table("lightspeed_products")\
+                .select("id, name, price")\
+                .in_("id", batch_product_ids)\
+                .execute()
+            products_data.extend(response.data)
+        
+        products_df = pd.DataFrame(products_data)
+        
+        # Merge line items with products
+        if not products_df.empty:
+            line_items_df = line_items_df.merge(
+                products_df,
+                left_on='product_id',
+                right_on='id',
+                how='left',
+                suffixes=('', '_product')
+            )
+        
+        return line_items_df
+        
     except Exception as e:
         st.error(f"Error loading sales with products: {e}")
         return pd.DataFrame()
@@ -77,14 +129,42 @@ def main():
     # Header
     st.title("🎨 Craft Contemporary Museum Shop")
     st.markdown("### Business Analytics Dashboard")
+    
+    # Sidebar for date filtering
+    st.sidebar.header("📅 Date Range Filter")
+    
+    # Date range selection
+    date_range = st.sidebar.selectbox(
+        "Select period",
+        ["Last 7 days", "Last 30 days", "Last 90 days", "Custom range"]
+    )
+    
+    if date_range == "Custom range":
+        col1, col2 = st.sidebar.columns(2)
+        with col1:
+            date_from = st.date_input("From", value=datetime.now() - timedelta(days=30))
+        with col2:
+            date_to = st.date_input("To", value=datetime.now())
+    else:
+        date_to = datetime.now().date()
+        if date_range == "Last 7 days":
+            date_from = date_to - timedelta(days=7)
+        elif date_range == "Last 30 days":
+            date_from = date_to - timedelta(days=30)
+        else:  # Last 90 days
+            date_from = date_to - timedelta(days=90)
+    
+    # Display selected range
+    st.sidebar.info(f"**Showing data from:**\n{date_from} to {date_to}")
+    
     st.markdown("---")
     
     # Load data
-    sales_df = load_sales_data()
+    sales_df = load_sales_data(date_from.strftime('%Y-%m-%d'), date_to.strftime('%Y-%m-%d'))
     products_df = load_product_data()
     
     if sales_df.empty:
-        st.warning("No sales data available for the last 30 days.")
+        st.warning(f"No sales data available from {date_from} to {date_to}.")
         return
     
     # Convert sale_date to datetime
@@ -96,7 +176,7 @@ def main():
     
     with col1:
         total_revenue = sales_df['total_price'].sum()
-        st.metric("30-Day Revenue", f"${total_revenue:,.2f}")
+        st.metric("Total Revenue", f"${total_revenue:,.2f}")
     
     with col2:
         total_transactions = len(sales_df)
@@ -108,7 +188,8 @@ def main():
     
     with col4:
         # Calculate daily average
-        daily_avg = total_revenue / 30
+        days_in_range = (date_to - date_from).days + 1
+        daily_avg = total_revenue / days_in_range if days_in_range > 0 else 0
         st.metric("Daily Average", f"${daily_avg:.2f}")
     
     st.markdown("---")
@@ -123,8 +204,9 @@ def main():
         daily_sales.columns = ['Date', 'Revenue']
         
         fig = px.line(daily_sales, x='Date', y='Revenue', 
-                     title="Daily Revenue Over Last 30 Days")
+                     title=f"Daily Revenue ({date_from} to {date_to})")
         fig.update_layout(height=400)
+        fig.update_traces(line_color='#1f77b4', line_width=2)
         st.plotly_chart(fig, use_container_width=True)
     
     with col2:
@@ -139,15 +221,17 @@ def main():
         dow_sales = dow_sales.sort_values('day_of_week')
         
         fig = px.bar(dow_sales, x='day_of_week', y='total_price',
-                    title="Revenue by Day of Week")
-        fig.update_layout(height=400)
+                    title="Revenue by Day of Week",
+                    color='total_price',
+                    color_continuous_scale='Blues')
+        fig.update_layout(height=400, showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
     
     # Product Insights
     st.markdown("---")
     
     # Load line items for product analysis
-    line_items_df = load_sales_with_products()
+    line_items_df = load_sales_with_products(date_from.strftime('%Y-%m-%d'), date_to.strftime('%Y-%m-%d'))
     
     if not line_items_df.empty:
         col1, col2 = st.columns(2)
@@ -156,39 +240,42 @@ def main():
             st.subheader("🏆 Top Selling Products")
             
             # Extract product names and calculate quantities
-            product_sales = []
-            for _, row in line_items_df.iterrows():
-                if row['lightspeed_products']:
-                    product_name = row['lightspeed_products']['name']
-                    quantity = float(row.get('quantity', 0))
-                    product_sales.append({'Product': product_name, 'Quantity': quantity})
-            
-            if product_sales:
-                products_summary = pd.DataFrame(product_sales)
-                top_products = products_summary.groupby('Product')['Quantity'].sum().sort_values(ascending=False).head(10)
+            if 'name' in line_items_df.columns:
+                line_items_df['quantity'] = pd.to_numeric(line_items_df['quantity'], errors='coerce').fillna(0)
+                top_products = line_items_df.groupby('name')['quantity'].sum().sort_values(ascending=False).head(10)
                 
-                st.bar_chart(top_products)
+                fig = px.bar(
+                    y=top_products.index,
+                    x=top_products.values,
+                    orientation='h',
+                    title="Top 10 Products by Units Sold",
+                    labels={'x': 'Units Sold', 'y': ''}
+                )
+                fig.update_layout(height=400)
+                st.plotly_chart(fig, use_container_width=True)
             else:
-                st.info("No product sales data available")
+                st.info("Product details not available")
         
         with col2:
             st.subheader("💰 Revenue by Product")
             
             # Calculate revenue per product
-            product_revenue = []
-            for _, row in line_items_df.iterrows():
-                if row['lightspeed_products']:
-                    product_name = row['lightspeed_products']['name']
-                    price = float(row.get('price_total', 0))
-                    product_revenue.append({'Product': product_name, 'Revenue': price})
-            
-            if product_revenue:
-                revenue_summary = pd.DataFrame(product_revenue)
-                top_revenue = revenue_summary.groupby('Product')['Revenue'].sum().sort_values(ascending=False).head(10)
+            if 'name' in line_items_df.columns:
+                line_items_df['price_total'] = pd.to_numeric(line_items_df['price_total'], errors='coerce').fillna(0)
+                top_revenue = line_items_df.groupby('name')['price_total'].sum().sort_values(ascending=False).head(10)
                 
-                st.bar_chart(top_revenue)
+                fig = px.bar(
+                    y=top_revenue.index,
+                    x=top_revenue.values,
+                    orientation='h',
+                    title="Top 10 Products by Revenue",
+                    labels={'x': 'Revenue ($)', 'y': ''},
+                    color_discrete_sequence=['#ff7f0e']
+                )
+                fig.update_layout(height=400)
+                st.plotly_chart(fig, use_container_width=True)
             else:
-                st.info("No product revenue data available")
+                st.info("Product revenue data not available")
     
     # Business Insights
     st.markdown("---")
@@ -208,13 +295,17 @@ def main():
         # Find peak day of week
         if not dow_sales.empty:
             peak_dow = dow_sales.loc[dow_sales['total_price'].idxmax()]
-            st.success(f"📅 **Peak Day**: {peak_dow['day_of_week']} averages ${peak_dow['total_price']:.2f}")
+            st.success(f"📅 **Peak Day**: {peak_dow['day_of_week']} typically sees highest sales")
         
         st.info(f"🛍️ **Average Purchase**: Visitors spend ${avg_transaction:.2f} per transaction")
     
+    # Navigation hint
+    st.markdown("---")
+    st.info("💡 **Tip**: Visit the **📊 Product Insights** page in the sidebar for detailed product performance analysis!")
+    
     # Footer
     st.markdown("---")
-    st.markdown("*Data refreshed every 5 minutes | Last 30 days of activity*")
+    st.markdown(f"*Data from {date_from} to {date_to} | Refreshed every 5 minutes*")
 
 if __name__ == "__main__":
     main()
