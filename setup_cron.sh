@@ -6,7 +6,7 @@ set -e
 
 PROJECT_DIR="/Users/daltonallen/Documents/projects/00-active/craft-shop"
 PYTHON_PATH="/usr/bin/python3"
-SCRIPT_PATH="$PROJECT_DIR/src/incremental_sync.py"
+SCRIPT_PATH="$PROJECT_DIR/01-data-integration/src/incremental_sync.py"
 LOG_PATH="$PROJECT_DIR/cron_sync.log"
 
 echo "🔧 Setting up daily sync cron job..."
@@ -34,4 +34,4 @@ echo "📄 Logs: $LOG_PATH"
 echo "🔍 View current cron jobs: crontab -l"
 echo "❌ Remove cron job: crontab -e (then delete the line)"
 echo ""
-echo "🧪 Test sync manually: cd $PROJECT_DIR && python3 src/incremental_sync.py"
+echo "🧪 Test sync manually: cd $PROJECT_DIR && python3 01-data-integration/src/incremental_sync.py"

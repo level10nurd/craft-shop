@@ -1,6 +1,5 @@
 -- WARNING: This schema is for context only and is not meant to be run.
 -- Table order and constraints may not be valid for execution.
--- Supbase schema as of 2025-07-16
 
 CREATE TABLE public.addresses (
   id integer NOT NULL DEFAULT nextval('addresses_id_seq'::regclass),
@@ -232,6 +231,14 @@ CREATE TABLE public.lightspeed_customers (
   updated_at timestamp with time zone,
   CONSTRAINT lightspeed_customers_pkey PRIMARY KEY (id)
 );
+CREATE TABLE public.lightspeed_inventory (
+  id text NOT NULL,
+  product_id text,
+  current_amount numeric DEFAULT 0,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT lightspeed_inventory_pkey PRIMARY KEY (id)
+);
 CREATE TABLE public.lightspeed_outlets (
   id text NOT NULL,
   name text,
@@ -260,9 +267,7 @@ CREATE TABLE public.lightspeed_sale_line_items (
   quantity numeric,
   status text,
   total_price numeric,
-  CONSTRAINT lightspeed_sale_line_items_pkey PRIMARY KEY (id),
-  CONSTRAINT lightspeed_sale_line_items_sale_id_fkey FOREIGN KEY (sale_id) REFERENCES public.lightspeed_sales(id),
-  CONSTRAINT lightspeed_sale_line_items_product_id_fkey FOREIGN KEY (product_id) REFERENCES public.lightspeed_products(id)
+  CONSTRAINT lightspeed_sale_line_items_pkey PRIMARY KEY (id)
 );
 CREATE TABLE public.lightspeed_sales (
   id text NOT NULL,
@@ -276,9 +281,7 @@ CREATE TABLE public.lightspeed_sales (
   sale_date timestamp with time zone,
   created_at timestamp with time zone,
   updated_at timestamp with time zone,
-  CONSTRAINT lightspeed_sales_pkey PRIMARY KEY (id),
-  CONSTRAINT lightspeed_sales_outlet_id_fkey FOREIGN KEY (outlet_id) REFERENCES public.lightspeed_outlets(id),
-  CONSTRAINT lightspeed_sales_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.lightspeed_customers(id)
+  CONSTRAINT lightspeed_sales_pkey PRIMARY KEY (id)
 );
 CREATE TABLE public.notes (
   id integer NOT NULL DEFAULT nextval('notes_id_seq'::regclass),
@@ -424,6 +427,27 @@ CREATE TABLE public.soft_credits (
   CONSTRAINT soft_credits_pkey PRIMARY KEY (id),
   CONSTRAINT soft_credits_transaction_number_fkey FOREIGN KEY (transaction_number) REFERENCES public.transactions(transaction_number),
   CONSTRAINT soft_credits_account_number_fkey FOREIGN KEY (account_number) REFERENCES public.constituents(account_number)
+);
+CREATE TABLE public.sync_log (
+  id integer NOT NULL DEFAULT nextval('sync_log_id_seq'::regclass),
+  timestamp timestamp with time zone DEFAULT now(),
+  entity_type text NOT NULL,
+  action text NOT NULL,
+  status text NOT NULL,
+  duration_seconds numeric,
+  records_processed integer DEFAULT 0,
+  error_details text,
+  metadata jsonb,
+  CONSTRAINT sync_log_pkey PRIMARY KEY (id)
+);
+CREATE TABLE public.sync_state (
+  entity_type text NOT NULL,
+  last_sync_time timestamp with time zone,
+  status text DEFAULT 'pending'::text,
+  error_message text,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT sync_state_pkey PRIMARY KEY (entity_type)
 );
 CREATE TABLE public.tasks (
   id integer NOT NULL DEFAULT nextval('tasks_id_seq'::regclass),

@@ -293,7 +293,7 @@ def sync_entity_incremental(lightspeed, supabase, entity_type: str) -> bool:
         config = entity_config[entity_type]
         
         # Fetch data from Lightspeed
-        logger.info(f"Fetching {entity_type} from Lightspeed (since: {last_sync_time})...")
+        logger.info(f"Fetching {entity_type} from Lightspeed (since version: {last_version})...")
         raw_data = config['fetch_method']()
         
         # Skip if no new data
