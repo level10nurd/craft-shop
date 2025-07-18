@@ -187,6 +187,8 @@ def transform_inventory(inventory: Dict) -> Dict:
         'id': inventory.get('id'),
         'product_id': inventory.get('product_id'),
         'current_amount': inventory.get('current_inventory', 0),
+        'lightspeed_created_at': inventory.get('created_at'),
+        'lightspeed_updated_at': inventory.get('updated_at'),
         'created_at': datetime.now(timezone.utc).isoformat(),
         'updated_at': datetime.now(timezone.utc).isoformat()
     }
